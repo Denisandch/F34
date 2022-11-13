@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">F34</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_splash">Ecommerce Concept</string>
+
+    <string-array name="debug">
+        <item name = "first">Zihuatanejo, Gro</item>
+    </string-array>
+</resources>
