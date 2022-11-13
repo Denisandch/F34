@@ -5,51 +5,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/shadow_white"
+    android:orientation="vertical"
     tools:context=".MainScreenFragment">
 
     <include
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:id="@+id/tool_bar"
-        layout="@layout/toolbar_main_screen" />
+        layout="@layout/toolbar_main_screen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
-        <TextView
-            android:id="@+id/select_category"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/mark_pro_bold"
-            android:text="Select Category"
-            android:textColor="@color/dark_blue"
-            android:textSize="25dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tool_bar"
-            android:paddingStart="17dp"/>
+    <TextView
+        android:id="@+id/select_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mark_pro_bold"
+        android:paddingStart="17dp"
+        android:text="Select Category"
+        android:textColor="@color/dark_blue"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tool_bar" />
 
-        <TextView
-            android:paddingEnd="33dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/mark_pro_regular"
-            android:text="view all"
-            android:textColor="@color/light_orange"
-            android:textSize="15dp"
-            app:layout_constraintBottom_toBottomOf="@+id/select_category"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/select_category" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mark_pro_regular"
+        android:paddingEnd="33dp"
+        android:text="view all"
+        android:textColor="@color/light_orange"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/select_category"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/select_category" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tool"
-        android:background="@color/shadow_white"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
+        android:background="@color/shadow_white"
         android:paddingTop="24dp"
         android:paddingBottom="35dp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/select_category">
 
         <com.google.android.material.tabs.TabItem
@@ -68,23 +68,28 @@
             android:text="Wednesday" />
     </com.google.android.material.tabs.TabLayout>
 
+
     <SearchView
         android:id="@+id/searchView"
         android:layout_width="0dp"
         android:layout_height="35dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="11dp"
+        android:background="@drawable/rounded_search_view"
+
         android:queryHint="Search"
+        android:searchIcon="@drawable/search"
         app:layout_constraintEnd_toStartOf="@+id/imageFilterButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tool" />
 
-    <androidx.constraintlayout.utils.widget.ImageFilterButton
+
+    <ImageButton
         android:id="@+id/imageFilterButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:layout_marginEnd="37dp"
-        android:background="@color/light_orange"
+        android:background="@drawable/rounded_button"
         android:src="@drawable/show_mode"
         app:layout_constraintBottom_toBottomOf="@+id/searchView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -93,10 +98,13 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
-        app:layout_constraintTop_toBottomOf="@id/searchView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/searchView"
+        app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
