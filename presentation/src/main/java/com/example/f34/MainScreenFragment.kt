@@ -3,10 +3,7 @@ package com.example.f34
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
-import android.widget.TextView
-import androidx.core.view.MenuHost
-import androidx.core.view.MenuProvider
-import androidx.lifecycle.Lifecycle
+import androidx.navigation.fragment.findNavController
 import com.example.f34.databinding.FragmentMainScreenBinding
 
 
@@ -25,9 +22,13 @@ class MainScreenFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.toolBar.myToolBar.inflateMenu(R.menu.toolbar_main_screen)
+        binding.toolBar.mainScreenToolBar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.filter -> findNavController().navigate(R.id.action_mainScreenFragment_to_bottomSheetFragment)
+            }
+            true
+        }
+
+
     }
-
-
-
 }

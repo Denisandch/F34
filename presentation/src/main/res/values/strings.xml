@@ -5,6 +5,6 @@
     <string name="hello_splash">Ecommerce Concept</string>
 
     <string-array name="debug">
-        <item name = "first">Zihuatanejo, Gro</item>
+        <item name="first">Zihuatanejo, Gro</item>
     </string-array>
 </resources>

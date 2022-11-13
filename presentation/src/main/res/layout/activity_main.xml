@@ -3,9 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_screen"
-    android:name="com.example.f34.MainScreenFragment"
+    android:name="androidx.navigation.fragment.NavHostFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    tools:layout="@layout/toolbar_main_screen">
+    tools:layout="@layout/toolbar_main_screen"
+    app:defaultNavHost="true"
+    app:navGraph="@navigation/navigation_graph">
 </androidx.fragment.app.FragmentContainerView>

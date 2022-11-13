@@ -2,18 +2,30 @@
     <!-- Base application theme. -->
     <style name="Theme.F34" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/dark_blue</item>
-        <item name="colorPrimaryVariant">#2C2B5F</item>
+        <item name="colorPrimary">#FF6E4E</item>
+        <item name="colorPrimaryVariant">#FFA07B</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">#FF6E4E</item>
-        <item name="colorSecondaryVariant">#FFA07B</item>
+
+        <item name="colorSecondary">@color/dark_blue</item>
+        <item name="colorSecondaryVariant">#2C2B5F</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/shadow_white</item>
 
         <!-- Customize your theme here. -->
         <item name="android:windowLightStatusBar">true</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
+    </style>
+
+    <style name="AppBottomSheetDialogTheme"
+        parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+
+    <style name="AppModalStyle"
+        parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/rounded_constraint</item>
     </style>
 
 </resources>
