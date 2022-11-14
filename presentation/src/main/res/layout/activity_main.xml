@@ -1,13 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.fragment.app.FragmentContainerView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_screen"
-    android:name="androidx.navigation.fragment.NavHostFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    tools:layout="@layout/toolbar_main_screen"
-    app:defaultNavHost="true"
-    app:navGraph="@navigation/navigation_graph">
-</androidx.fragment.app.FragmentContainerView>
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/navigation_graph" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="wrap_content"
+        android:layout_height="56dp"
+        android:background="@drawable/rounded_top_corners"
+        android:paddingHorizontal="56dp"
+        app:backgroundTint="@color/dark_blue"
+        app:itemIconSize="15dp"
+        app:itemIconTint="@drawable/bottom_nav_selector"
+        app:itemTextColor="@color/white"
+        app:menu="@menu/bottom_navigation_menu"
+        android:layout_gravity="bottom"/>
+
+</FrameLayout>

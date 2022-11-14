@@ -3,25 +3,43 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/mainScreenFragment">
+    app:startDestination="@id/explorer">
 
     <fragment
-        android:id="@+id/mainScreenFragment"
+        android:id="@+id/explorer"
         android:name="com.example.f34.MainScreenFragment"
         android:label="fragment_main_screen"
-        tools:layout="@layout/fragment_main_screen" >
+        tools:layout="@layout/fragment_main_screen">
         <action
-            android:id="@+id/action_mainScreenFragment_to_bottomSheetFragment"
+            android:id="@+id/action_explorer_to_bottomSheetFragment"
             app:destination="@id/bottomSheetFragment" />
+        <action
+            android:id="@+id/action_explorer_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/cart"
+        android:name="com.example.f34.MyCartFragment"
+        android:label="fragment_my_cart"
+        tools:layout="@layout/fragment_my_cart" />
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.example.f34.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/favorites"
+        android:name="com.example.f34.FavoritesFragment"
+        android:label="fragment_favorites"
+        tools:layout="@layout/fragment_favorites" />
     <dialog
         android:id="@+id/bottomSheetFragment"
         android:name="com.example.f34.BottomSheetFragment"
         android:label="fragment_bottom_sheet"
-        tools:layout="@layout/fragment_bottom_sheet" >
-        <action
-            android:id="@+id/action_bottomSheetFragment_to_mainScreenFragment"
-            app:destination="@id/mainScreenFragment"
-            app:popUpToInclusive="true" />
-    </dialog>
+        tools:layout="@layout/fragment_bottom_sheet" />
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="com.example.f34.ProductDetailsFragment"
+        android:label="fragment_product_details"
+        tools:layout="@layout/fragment_product_details" />
 </navigation>
