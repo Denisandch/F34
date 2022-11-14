@@ -29,7 +29,6 @@ class ProductDetailsFragment : Fragment() {
         binding.toolBar.cart.setOnClickListener{
             val botNav = activity?.findViewById<BottomNavigationView>(R.id.bottom_nav)
             botNav?.selectedItemId = R.id.cart
-//            botNav?.visibility = View.GONE
             findNavController().popBackStack(R.id.productDetailsFragment,true)
         }
     }
