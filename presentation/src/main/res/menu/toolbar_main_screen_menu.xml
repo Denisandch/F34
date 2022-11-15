@@ -4,9 +4,9 @@
 
     <item
         android:id="@+id/filter"
-        android:icon="@drawable/filter"
-        android:title="filters"
-        app:showAsAction="always"
-        />
+        android:icon="@drawable/button_filter_svg"
+        android:title="@string/filters"
+        app:showAsAction="always"/>
+
 
 </menu>

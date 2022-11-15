@@ -1,10 +1,41 @@
 <resources>
     <string name="app_name">F34</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="temporary_empty_fragment">Temporary empty fragment</string>
     <string name="hello_splash">Ecommerce Concept</string>
 
+<!--    menus-->
+    <string name="filters">filters</string>
+
+    <!--bottom navigation-->
+    <string name="bottom_nav_explorer">Explorer</string>
+    <string name="bottom_nav_cart">Cart</string>
+    <string name="bottom_nav_favorites">Favorites</string>
+    <string name="bottom_nav_profile">Profile</string>
+
+    <!--MainScreenFragment-->
+    <string name="categories">Select Category</string>
+    <string name="show_all_categories">view all</string>
+
+    <!--BottomSheetFilterTitles-->
+    <string name="bottom_sheet_title">Filter options</string>
+    <string name="filter_brand">Brand</string>
+    <string name="filter_price">Price</string>
+    <string name="filter_size">Size</string>
+
+    <!--    CartFragment-->
+    <string name="cart_title">My Cart</string>
+    <string name="cart_title_total">Total</string>
+    <string name="cart_title_delivery">Delivery</string>
+    <string name="cart_count_total">1000$</string>
+    <string name="cart_default_delivery">Free</string>
+    <string name="cart_count_delivery">50$</string>
+
+
+
+    <!--hardcoded string array for MainScreen ActionBar-->
     <string-array name="debug">
         <item name="first">Zihuatanejo, Gro</item>
+        <item name="second">Moscow, Rus</item>
     </string-array>
 </resources>

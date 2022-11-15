@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <style name="SectionName.F34.TextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:fontFamily">@font/mark_pro_bold</item>
+        <item name="android:textSize">@dimen/section_name_size</item>
+        <item name="android:textColor">@color/dark_blue</item>
+        <item name="android:paddingStart">@dimen/section_name_padding_start</item>
+    </style>
+
+    <style name="OpenAll.F34.TextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:fontFamily">@font/mark_pro_regular</item>
+        <item name="android:textSize">@dimen/open_all_size</item>
+        <item name="android:textColor">@color/light_orange</item>
+        <item name="android:paddingEnd">@dimen/open_all_padding_end</item>
+    </style>
+
+    <style name="BottomSheetTitles.F34.TextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:fontFamily">@font/mark_pro_medium</item>
+        <item name="android:textSize">@dimen/bottom_title_size</item>
+        <item name="android:textColor">@color/dark_blue</item>
+    </style>
+
+    <style name="CartTitle.F34.TextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:fontFamily">@font/mark_pro_bold</item>
+        <item name="android:textSize">@dimen/cart_title_size</item>
+        <item name="android:textColor">@color/dark_blue</item>
+        <item name="android:layout_marginStart">@dimen/cart_title_margin_start</item>
+        <item name="android:layout_marginTop">@dimen/cart_title_margin_top</item>
+    </style>
+
+    <style name="SubtotalTitles.F34.TextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:fontFamily">@font/mark_pro_regular</item>
+        <item name="android:textSize">@dimen/subtotal_text_size</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="SubtotalCount.F34.TextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:fontFamily">@font/mark_pro_bold</item>
+        <item name="android:textSize">@dimen/subtotal_text_size</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+</resources>

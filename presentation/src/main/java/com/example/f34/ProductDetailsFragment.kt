@@ -12,24 +12,24 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class ProductDetailsFragment : Fragment() {
 
-    private lateinit var binding: FragmentProductDetailsBinding
+    private lateinit var fragmentProductDetailsBinding: FragmentProductDetailsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentProductDetailsBinding.inflate(inflater, container, false)
-        return binding.root
+        fragmentProductDetailsBinding = FragmentProductDetailsBinding.inflate(inflater, container, false)
+        return fragmentProductDetailsBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.toolBar.cart.setOnClickListener{
+        fragmentProductDetailsBinding.toolBar.cart.setOnClickListener{
             val botNav = activity?.findViewById<BottomNavigationView>(R.id.bottom_nav)
-            botNav?.selectedItemId = R.id.cart
             findNavController().popBackStack(R.id.productDetailsFragment,true)
+            botNav?.selectedItemId = R.id.cart
         }
     }
 }

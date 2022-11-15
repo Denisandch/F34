@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="bottom_nav_height">56dp</dimen>
 
+<!--SectionName style-->
+    <dimen name="section_name_padding_start">17dp</dimen>
+    <dimen name="section_name_size">25sp</dimen>
 
+    <!--OpenAll-->
+    <dimen name="open_all_padding_end">33dp</dimen>
+    <dimen name="open_all_size">15sp</dimen>
+
+    <!--BottomSheetFilterTitles-->
+    <dimen name="bottom_title_size">18sp</dimen>
+
+    <!--Cart-->
+    <dimen name="cart_title_size">35sp</dimen>
+    <dimen name="cart_title_margin_start">45dp</dimen>
+    <dimen name="cart_title_margin_top">50dp</dimen>
+    <dimen name="subtotal_text_size">15sp</dimen>
 </resources>

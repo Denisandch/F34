@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+
     android:layout_height="match_parent"
     tools:context=".ProductDetailsFragment"
     android:background="@color/shadow_white"
@@ -19,7 +20,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/rounded_top_corners"
+        android:backgroundTint="@color/white"
+        android:background="@drawable/shape_rounded_top_corners"
         android:layout_weight="2">
 
 

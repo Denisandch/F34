@@ -4,7 +4,7 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">#FF6E4E</item>
         <item name="colorPrimaryVariant">#FFA07B</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/shadow_white</item>
         <!-- Secondary brand color. -->
 
         <item name="colorSecondary">@color/dark_blue</item>
@@ -15,6 +15,7 @@
 
         <!-- Customize your theme here. -->
         <item name="android:windowLightStatusBar">true</item>
+
         <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
     </style>
 
@@ -25,7 +26,7 @@
 
     <style name="AppModalStyle"
         parent="Widget.Design.BottomSheet.Modal">
-        <item name="android:background">@drawable/rounded_top_corners</item>
+        <item name="android:background">@drawable/shape_rounded_top_corners</item>
     </style>
 
 </resources>

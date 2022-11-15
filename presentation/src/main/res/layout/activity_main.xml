@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
@@ -18,14 +17,14 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
         android:layout_width="wrap_content"
-        android:layout_height="56dp"
-        android:background="@drawable/rounded_top_corners"
+        android:layout_height="@dimen/bottom_nav_height"
+        android:layout_gravity="bottom"
+        android:background="@drawable/shape_rounded_top_corners"
         android:paddingHorizontal="56dp"
         app:backgroundTint="@color/dark_blue"
         app:itemIconSize="15dp"
         app:itemIconTint="@drawable/bottom_nav_selector"
-        app:itemTextColor="@color/white"
-        app:menu="@menu/bottom_navigation_menu"
-        android:layout_gravity="bottom"/>
+        app:itemTextColor="@color/shadow_white"
+        app:menu="@menu/bottom_navigation_menu" />
 
 </FrameLayout>
