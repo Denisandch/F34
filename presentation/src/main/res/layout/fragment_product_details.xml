@@ -1,33 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
 
     android:layout_height="match_parent"
-    tools:context=".ProductDetailsFragment"
     android:background="@color/shadow_white"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".ProductDetailsFragment">
 
     <include
-        android:id="@+id/tool_bar"
-        layout="@layout/toolbar_product"/>
-    
+        android:id="@+id/toolBar"
+        layout="@layout/toolbar_product" />
+
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="3" />
-    
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:backgroundTint="@color/white"
+        android:layout_weight="2"
         android:background="@drawable/shape_rounded_top_corners"
-        android:layout_weight="2">
-
+        android:backgroundTint="@color/white">
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
 </LinearLayout>

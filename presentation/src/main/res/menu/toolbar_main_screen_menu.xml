@@ -8,5 +8,4 @@
         android:title="@string/filters"
         app:showAsAction="always"/>
 
-
 </menu>

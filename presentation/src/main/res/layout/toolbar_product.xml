@@ -29,13 +29,14 @@
             app:layout_constraintBottom_toBottomOf="parent"/>
 
         <TextView
+            style="@style/ProductTitle.F34.TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toEndOf="@id/exit"
             app:layout_constraintEnd_toStartOf="@id/cart"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:text="Product Details"/>
+            android:text="@string/product_detail_title"/>
 
         <ImageButton
             android:id="@+id/cart"

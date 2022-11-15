@@ -4,7 +4,7 @@
     <string name="temporary_empty_fragment">Temporary empty fragment</string>
     <string name="hello_splash">Ecommerce Concept</string>
 
-<!--    menus-->
+    <!--menus-->
     <string name="filters">filters</string>
 
     <!--bottom navigation-->
@@ -30,6 +30,10 @@
     <string name="cart_count_total">1000$</string>
     <string name="cart_default_delivery">Free</string>
     <string name="cart_count_delivery">50$</string>
+    <string name="cart_add_address">Add address</string>
+
+    <!--    ProductDetailFragment-->
+    <string name="product_detail_title">Product Details</string>
 
 
 

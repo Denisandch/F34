@@ -23,13 +23,15 @@ class MainScreenFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         fragmentMainScreenBinding.toolBar.mainScreenToolBar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.filter -> findNavController().navigate(R.id.action_explorer_to_bottomSheetFragment)
             }
             true
         }
-        fragmentMainScreenBinding.imageFilterButton.setOnClickListener{
+
+        fragmentMainScreenBinding.imageFilterButton.setOnClickListener {
             findNavController().navigate(R.id.action_explorer_to_productDetailsFragment)
         }
     }

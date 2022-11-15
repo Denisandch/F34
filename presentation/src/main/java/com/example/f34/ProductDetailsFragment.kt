@@ -31,5 +31,9 @@ class ProductDetailsFragment : Fragment() {
             findNavController().popBackStack(R.id.productDetailsFragment,true)
             botNav?.selectedItemId = R.id.cart
         }
+
+        fragmentProductDetailsBinding.toolBar.exit.setOnClickListener{
+            findNavController().popBackStack()
+        }
     }
 }

@@ -2,10 +2,9 @@
 <com.google.android.material.appbar.MaterialToolbar xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/cart_tool_bar"
+    android:id="@+id/product_tool_bar"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
-    android:background="@color/shadow_white"
     android:theme="@style/Theme.F34"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
@@ -14,7 +13,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:backgroundTint="@color/black">
 
         <ImageButton
             android:id="@+id/exit"
@@ -28,25 +28,25 @@
             app:layout_constraintBottom_toBottomOf="parent"/>
 
         <TextView
+            style="@style/ProductTitle.F34.TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            style="@style/ToolBarEddAddress.F34.TextView"
-            android:text="@string/cart_add_address"
+            app:layout_constraintStart_toEndOf="@id/exit"
+            app:layout_constraintEnd_toStartOf="@id/cart"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/location"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="@string/product_detail_title"/>
 
         <ImageButton
-            android:id="@+id/location"
+            android:id="@+id/cart"
             android:layout_width="37dp"
             android:layout_height="37dp"
-            android:layout_marginEnd="35dp"
             android:background="@drawable/shape_rounded_corners_button_light"
-            android:src="@drawable/button_location_white_svg"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/button_cart_svg"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="35dp"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

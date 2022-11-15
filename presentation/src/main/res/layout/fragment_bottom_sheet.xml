@@ -6,51 +6,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="375dp"
-    android:paddingStart="44dp"
-    android:paddingTop="24dp"
-    android:paddingEnd="30dp"
+
     android:paddingBottom="24dp"
     tools:context=".BottomSheetFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
-
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="37dp"
-        android:layout_height="37dp"
-        android:background="@drawable/shape_rounded_corners_button_dark"
-        android:src="@drawable/button_cancel_svg"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        style="@style/BottomSheetTitles.F34.TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="44dp"
-        android:text="@string/bottom_sheet_title"
-        app:layout_constraintBottom_toBottomOf="@+id/done_button"
-        app:layout_constraintEnd_toStartOf="@id/done_button"
-        app:layout_constraintTop_toTopOf="@id/done_button" />
-
-    <Button
-        android:id="@+id/done_button"
-        android:layout_width="wrap_content"
-        android:layout_height="37dp"
-        android:background="@drawable/shape_rounded_corners_button_light"
-        android:text="Done"
+    <include
+        android:id="@+id/toolBar"
+        layout="@layout/toolbar_bottom_sheet"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/close_bottom_sheet"-->
+<!--        android:layout_width="37dp"-->
+<!--        android:layout_height="37dp"-->
+<!--        android:background="@drawable/shape_rounded_corners_button_dark"-->
+<!--        android:src="@drawable/button_cancel_svg"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <TextView-->
+<!--        style="@style/BottomSheetTitles.F34.TextView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginEnd="44dp"-->
+<!--        android:text="@string/bottom_sheet_title"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/done_button"-->
+<!--        app:layout_constraintEnd_toStartOf="@id/done_button"-->
+<!--        app:layout_constraintTop_toTopOf="@id/done_button" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/done_button"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="37dp"-->
+<!--        android:background="@drawable/shape_rounded_corners_button_light"-->
+<!--        android:text="Done"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginEnd="30dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/done_button">
+        app:layout_constraintTop_toBottomOf="@id/toolBar">
 
         <TextView
             style="@style/BottomSheetTitles.F34.TextView"
