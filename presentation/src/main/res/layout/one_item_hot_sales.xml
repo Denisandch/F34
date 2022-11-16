@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="190dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="10dp">
+
+    <ImageView
+        android:id="@+id/hot_sale_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        tools:srcCompat="@drawable/ff" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="30dp"
+        android:paddingTop="20dp">
+
+        <FrameLayout
+            android:id="@+id/is_new_marker"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/shape_oval"
+            android:visibility="invisible"
+            tools:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/mark_pro_bold"
+                android:gravity="center"
+                android:text="@string/is_new"
+                android:textColor="@color/shadow_white"
+                android:textSize="10sp" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/hot_sale_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/mark_pro_bold"
+            tools:text="Iphone 12"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            app:layout_constraintStart_toStartOf="@+id/is_new_marker"
+            app:layout_constraintTop_toBottomOf="@+id/is_new_marker" />
+
+        <TextView
+            android:id="@+id/hot_sale_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/mark_pro_regular"
+            tools:text="Super.Mega.Rapido."
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="@+id/is_new_marker"
+            app:layout_constraintTop_toBottomOf="@+id/hot_sale_title" />
+
+
+        <FrameLayout
+            android:id="@+id/hot_sale_buy_button"
+            android:layout_width="98dp"
+            android:layout_height="23dp"
+            android:layout_marginTop="26dp"
+            android:background="@drawable/shape_rounded_corners_button_light"
+            android:backgroundTint="@color/shadow_white"
+            app:layout_constraintStart_toStartOf="@+id/is_new_marker"
+            app:layout_constraintTop_toBottomOf="@+id/hot_sale_description">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/mark_pro_bold"
+                android:gravity="center"
+                android:text="@string/tu_buy"
+                android:textColor="@color/dark_blue"
+                android:textSize="11sp" />
+        </FrameLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

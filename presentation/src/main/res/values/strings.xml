@@ -15,7 +15,14 @@
 
     <!--MainScreenFragment-->
     <string name="categories">Select Category</string>
+    <string name="hot_sales">Hot sales</string>
+    <string name="best_seller">Best Seller</string>
+    <string name="full_list">see more</string>
     <string name="show_all_categories">view all</string>
+
+<!--HotSalesCard-->
+    <string name="is_new">New</string>
+    <string name="tu_buy">Buy now!</string>
 
     <!--BottomSheetFilterTitles-->
     <string name="bottom_sheet_title">Filter options</string>
