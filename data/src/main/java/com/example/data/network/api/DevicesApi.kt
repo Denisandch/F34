@@ -1,5 +1,4 @@
 package com.example.data.network.api
-
 import com.example.data.network.model.cart.CartInfoJsonAnswer
 import com.example.data.network.model.mainscreen.MainScreenJsonAnswer
 import com.example.data.network.model.productdetails.InfoAboutCheckedDeviceJsonAnswer

@@ -9,10 +9,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.example.data.network.model.mainscreen.HotSellDevice
+import com.example.domain.model.mainscreen.HotSellDevice
 import com.example.f34.R
 import com.example.f34.databinding.OneItemHotSalesBinding
-import kotlin.math.roundToInt
 
 
 class HotSalesAdapter: ListAdapter<HotSellDevice, HotSalesAdapter.HotSalesItemViewHolder>(DiffCallback) {

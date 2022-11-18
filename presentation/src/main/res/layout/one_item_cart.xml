@@ -39,10 +39,8 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/cart_price"
         app:layout_constraintEnd_toStartOf="@+id/linearLayoutCompat"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@id/card_image"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         tools:text="Galaxy Note 20 Ultra" />
 
     <TextView
@@ -98,6 +96,9 @@
             android:gravity="center"
             android:textColor="@color/shadow_white"
             android:textSize="20sp"
+            android:maxLines="1"
+            android:maxLength="1"
+            android:text="1"
             tools:text="2" />
 
         <ImageButton

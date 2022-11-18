@@ -21,19 +21,30 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/ff" />
+            tools:src="@drawable/ff"/>
 
-        <ImageButton
-            android:id="@+id/imageFilterButton"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+        <FrameLayout
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_marginEnd="12dp"
             android:layout_marginTop="12dp"
-            android:backgroundTint="@color/shadow_white"
             android:background="@drawable/shape_oval"
-            android:src="@drawable/button_favorites_svg"
+            android:visibility="visible"
+            android:elevation="1dp"
+            android:backgroundTint="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <CheckBox
+                android:id="@+id/is_favorite"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:itemRippleColor="@null"
+                android:theme="@style/LightCheckBoxHeart"
+                android:button="@drawable/selector_checkbox_light"/>
+
+        </FrameLayout>
+
 
         <TextView
             tools:text="$1,500"

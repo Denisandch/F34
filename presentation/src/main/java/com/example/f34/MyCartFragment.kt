@@ -8,16 +8,17 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.example.domain.model.cart.Lot
 import com.example.f34.adapters.CartAdapter
-import com.example.f34.adapters.HotSalesAdapter
+import com.example.f34.adapters.CartInterface
 import com.example.f34.databinding.FragmentMyCartBinding
-import com.example.f34.viewmodels.MainScreenViewModel
+import com.example.f34.viewmodels.ApplicationViewModel
 
 
-class MyCartFragment : Fragment() {
+class MyCartFragment : Fragment(), CartInterface {
 
-    private val adapterCart = CartAdapter()
-    private val viewmodel: MainScreenViewModel by activityViewModels()
+    private val adapterCart = CartAdapter(this)
+    private val viewmodel: ApplicationViewModel by activityViewModels()
     private lateinit var fragmentMyCartBinding: FragmentMyCartBinding
 
     override fun onCreateView(
@@ -41,12 +42,32 @@ class MyCartFragment : Fragment() {
 
         fragmentMyCartBinding.cartRecycler.adapter = adapterCart
 
-        viewmodel.cartAnswer.observe(viewLifecycleOwner) {
+        viewmodel.cartInfo.observe(viewLifecycleOwner) {
             adapterCart.submitList(it.basket)
+            adapterCart.notifyDataSetChanged()
 
-            fragmentMyCartBinding.cartSummatyCost.text = it.total.toString()
+        }
+
+        viewmodel.cartInfo.observe(viewLifecycleOwner) {
             fragmentMyCartBinding.cartDeliveryCost.text = it.deliveryString
         }
+
+        viewmodel.totalPrice.observe(viewLifecycleOwner) {
+            fragmentMyCartBinding.cartSummaryCost.text = "\$${it} us"
+        }
+
+    }
+
+    override fun upCount(lot: Lot) {
+        viewmodel.upCountOfLot(lot)
+    }
+
+    override fun downCount(lot: Lot) {
+        viewmodel.downCountOfLot(lot)
+    }
+
+    override fun deleteFromCart(lot: Lot) {
+        viewmodel.deleteLotFromCart(lot)
     }
 
 }
