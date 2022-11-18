@@ -151,7 +151,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:src="@drawable/image_spu_svg" />
+                    android:src="@drawable/image_cpu_svg" />
 
                 <TextView
                     android:id="@+id/cpu_description"
@@ -198,7 +198,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:src="@drawable/image_ram_svg" />
+                    android:src="@drawable/image_rom_svg" />
 
                 <TextView
                     android:id="@+id/ram_description"
