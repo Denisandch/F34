@@ -28,21 +28,25 @@
             app:layout_constraintBottom_toBottomOf="parent"/>
 
         <TextView
-            style="@style/ProductTitle.F34.TextView"
+            style="@style/BottomSheetTitles.F34.TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toEndOf="@id/exit"
-            app:layout_constraintEnd_toStartOf="@id/cart"
+            app:layout_constraintEnd_toStartOf="@id/apply_filter"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:text="@string/product_detail_title"/>
+            android:text="@string/bottom_sheet_title"/>
 
-        <ImageButton
-            android:id="@+id/cart"
-            android:layout_width="37dp"
+        <Button
+            android:textAllCaps="false"
+            android:id="@+id/apply_filter"
+            android:text="@string/done"
+            android:fontFamily="@font/mark_pro_medium"
+            android:textSize="18sp"
+            android:paddingTop="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="37dp"
             android:background="@drawable/shape_rounded_corners_button_light"
-            android:src="@drawable/button_cart_svg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"

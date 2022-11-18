@@ -29,8 +29,7 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
             findNavController().popBackStack()
         }
 
-        bottomSheetBinding.toolBar.cart.setOnClickListener {
-            Toast.makeText(requireContext(), "Filters added", Toast.LENGTH_SHORT).show()
+        bottomSheetBinding.toolBar.applyFilter.setOnClickListener {
             findNavController().popBackStack()
         }
     }

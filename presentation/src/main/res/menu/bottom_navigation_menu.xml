@@ -12,7 +12,7 @@
 
     <item
         android:id="@+id/favorites"
-        android:icon="@drawable/button_favorites_svg"
+        android:icon="@drawable/button_favorites_navigation_svg"
         android:title="@string/bottom_nav_favorites" />
 
     <item

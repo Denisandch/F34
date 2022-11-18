@@ -62,4 +62,6 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
 
     implementation "io.coil-kt:coil:1.1.1"
+
+    implementation 'com.github.ome450901:SimpleRatingBar:1.5.1'
 }

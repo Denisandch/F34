@@ -42,6 +42,9 @@ class ApplicationViewModel : ViewModel() {
     private val _totalPrice = MutableLiveData<Int>()
     val totalPrice: LiveData<Int> = _totalPrice
 
+    private val _totalCountDevices = MutableLiveData<Int>(0)
+    val totalCountDevices: LiveData<Int> = _totalCountDevices
+
     private lateinit var mainScreenData: MainScreenData
     private var dataIsDownloaded = false
 
@@ -49,6 +52,7 @@ class ApplicationViewModel : ViewModel() {
         if(_cartInfo.value!!.basket.contains(lot)) {
             upCountOfLot(lot)
         } else {
+            _totalCountDevices.value = _totalCountDevices.value?.plus(1)
             _cartInfo.value?.basket?.add(lot)
             _cartInfo.postValue(_cartInfo.value)
             _totalPrice.value = _totalPrice.value?.plus(lot.totalPrice)
@@ -58,6 +62,7 @@ class ApplicationViewModel : ViewModel() {
     fun upCountOfLot(lot: Lot) {
         if(lot.count == 9) return
         val index =_cartInfo.value!!.basket.indexOf(lot)
+        _totalCountDevices.value = _totalCountDevices.value?.plus(1)
         _cartInfo.value!!.basket[index].count++
         _cartInfo.value!!.basket[index].totalPrice += lot.price
         _cartInfo.postValue(_cartInfo.value)
@@ -70,6 +75,7 @@ class ApplicationViewModel : ViewModel() {
             return
         }
         val index =_cartInfo.value!!.basket.indexOf(lot)
+        _totalCountDevices.value = _totalCountDevices.value?.minus(1)
         _cartInfo.value!!.basket[index].count--
         cartInfo.value!!.basket[index].totalPrice -= lot.price
         _cartInfo.postValue(_cartInfo.value)
@@ -78,9 +84,21 @@ class ApplicationViewModel : ViewModel() {
 
     fun deleteLotFromCart(lot: Lot) {
         val index =_cartInfo.value!!.basket.indexOf(lot)
+        _totalCountDevices.value = _totalCountDevices.value?.minus(_cartInfo.value!!.basket[index].count)
         _totalPrice.value = _totalPrice.value?.minus(_cartInfo.value!!.basket[index].totalPrice)
         _cartInfo.value!!.basket.remove(lot)
         _cartInfo.postValue(_cartInfo.value)
+    }
+
+    private fun initialProperties() {
+
+        for(item in _cartInfo.value!!.basket) {
+            _totalCountDevices.value = _totalCountDevices.value?.plus(item.count)
+        }
+
+        _totalPrice.value = _cartInfo.value!!.total
+        _bestSellerList.value = mainScreenData.bestSellerList
+        _hotSalesList.value = mainScreenData.hotSellList
     }
 
     fun downloadInitialData() {
@@ -92,10 +110,7 @@ class ApplicationViewModel : ViewModel() {
                 _cartInfo.value =
                     getSavedCartInfo.getCartInfo("53539a72-3c5f-4f30-bbb1-6ca10d42c149")
 
-                _totalPrice.value = _cartInfo.value!!.total
-
-                _bestSellerList.value = mainScreenData.bestSellerList
-                _hotSalesList.value = mainScreenData.hotSellList
+                initialProperties()
             }
             dataIsDownloaded = true
         }

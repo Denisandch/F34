@@ -49,10 +49,27 @@
     </style>
     
     <style name="ProductTitle.F34.TextView" parent="BottomSheetTitles.F34.TextView" />
+    <style name="ProductDetailsDescription.F34.TextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:fontFamily">@font/mark_pro_regular</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">#B7B7B7</item>
+    </style>
 
     <style name="LightCheckBoxHeart" parent="Theme.AppCompat.Light">
-        <item name="colorControlNormal">@color/light_orange</item>
+        <item name="colorControlNormal">@color/shadow_white</item>
         <item name="colorControlActivated">@color/light_orange</item>
     </style>
+
+
+    <style name="TabLayoutProductDetails" parent="Widget.Design.TabLayout">
+        <item name="tabTextAppearance">@style/TabProductDetails</item>
+    </style>
+
+    <style name="TabProductDetails" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+        <item name="fontFamily">@font/mark_pro_bold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
 
 </resources>

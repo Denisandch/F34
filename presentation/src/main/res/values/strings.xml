@@ -29,6 +29,7 @@
     <string name="filter_brand">Brand</string>
     <string name="filter_price">Price</string>
     <string name="filter_size">Size</string>
+    <string name="done">Done</string>
 
     <!--    CartFragment-->
     <string name="cart_title">My Cart</string>
@@ -38,9 +39,11 @@
     <string name="cart_default_delivery">Free</string>
     <string name="cart_count_delivery">50$</string>
     <string name="cart_add_address">Add address</string>
+    <string name="checkout_button">Checkout</string>
 
     <!--    ProductDetailFragment-->
     <string name="product_detail_title">Product Details</string>
+    <string name="add_to_cart">Add to cart</string>
 
 
 
