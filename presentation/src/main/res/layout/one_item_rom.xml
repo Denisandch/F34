@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Button android:id="@+id/capacity"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="30dp"
-    android:background="@drawable/shape_rounded_corners_button_light"
-    android:backgroundTint="@color/white"
-    android:textAllCaps="false"
-    android:textColor="#8D8D8D"
-    android:fontFamily="@font/mark_pro_bold"
-    android:textSize="13sp"
-    android:padding="0dp"
-    tools:text="256 gb"
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="70dp"
+    android:layout_height="30dp"
     android:layout_margin="5dp"
-    xmlns:tools="http://schemas.android.com/tools">
-</Button>
+    android:background="@drawable/shape_rounded_corners_button_light"
+    android:backgroundTint="@color/white">
+
+    <TextView
+        android:id="@+id/capacity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/mark_pro_bold"
+        android:textColor="#8D8D8D"
+        android:textSize="13sp"
+        tools:text="256 gb" />
+
+</FrameLayout>

@@ -12,16 +12,21 @@
         android:id="@+id/toolBar"
         layout="@layout/toolbar_product" />
 
+
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/images_view_pager"
+        android:id="@+id/details_images"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="5" />
+        android:layout_weight="17"
+        android:paddingStart="80dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="80dp"
+        android:paddingBottom="15dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="3"
+        android:layout_weight="12"
 
         android:background="@drawable/shape_rounded_top_corners"
         android:backgroundTint="@color/white"
@@ -30,7 +35,7 @@
         android:paddingBottom="@dimen/bottom_nav_height">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/details_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/mark_pro_medium"
@@ -49,29 +54,30 @@
             android:background="@drawable/shape_rounded_corners_button_dark"
             android:elevation="1dp"
             android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="@+id/textView"
+            app:layout_constraintBottom_toBottomOf="@+id/details_title"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView">
+            app:layout_constraintTop_toTopOf="@+id/details_title">
 
             <CheckBox
-                android:id="@+id/is_favorite"
+                android:id="@+id/details_is_favorite"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:button="@drawable/selector_checkbox_dark"
+                android:checked="false"
                 android:theme="@style/LightCheckBoxHeart"
                 app:itemRippleColor="@null" />
 
         </FrameLayout>
 
         <com.willy.ratingbar.ScaleRatingBar
-            android:id="@+id/rating_bar"
+            android:id="@+id/details_rating_bar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="@+id/details_title"
+            app:layout_constraintTop_toBottomOf="@+id/details_title"
             app:srb_drawableEmpty="@drawable/rating_bar_empty"
             app:srb_drawableFilled="@drawable/rating_bar_filled"
-            app:srb_isIndicator="false"
+            app:srb_isIndicator="true"
             app:srb_numStars="5"
             app:srb_starHeight="18dp"
             app:srb_starPadding="4dp"
@@ -82,7 +88,7 @@
             android:id="@+id/add_to_cart"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:layout_marginBottom="28dp"
+            android:layout_marginBottom="18dp"
             android:background="@drawable/shape_rounded_corners_button_light"
             android:fontFamily="@font/mark_pro_bold"
             android:gravity="center"
@@ -103,7 +109,7 @@
             android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rating_bar"
+            app:layout_constraintTop_toBottomOf="@+id/details_rating_bar"
             app:tabIndicatorColor="@color/light_orange"
             app:tabRippleColor="@null">
 
@@ -198,7 +204,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:src="@drawable/image_rom_svg" />
+                    android:src="@drawable/image_ram_svg" />
 
                 <TextView
                     android:id="@+id/ram_description"
@@ -238,13 +244,13 @@
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_marginBottom="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
             android:fontFamily="@font/mark_pro_medium"
-            android:textSize="16sp"
-            android:textColor="@color/dark_blue"
             android:text="Select color and capacity"
+            android:textColor="@color/dark_blue"
+            android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/recycler_color"
             app:layout_constraintStart_toStartOf="@+id/add_to_cart" />
 
@@ -252,7 +258,7 @@
             android:id="@+id/recycler_color"
             android:layout_width="150dp"
             android:layout_height="40dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="10dp"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toTopOf="@+id/add_to_cart"
@@ -263,13 +269,13 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclet_capacity"
             android:layout_width="0dp"
-            tools:listitem="@layout/one_item_rom"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:layout_height="40dp"
             android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="@+id/recycler_color"
             app:layout_constraintEnd_toEndOf="@+id/add_to_cart"
-            app:layout_constraintStart_toEndOf="@+id/recycler_color" />
+            app:layout_constraintStart_toEndOf="@+id/recycler_color"
+            tools:listitem="@layout/one_item_rom" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

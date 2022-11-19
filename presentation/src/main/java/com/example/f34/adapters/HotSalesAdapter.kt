@@ -39,7 +39,6 @@ class HotSalesAdapter: ListAdapter<HotSellDevice, HotSalesAdapter.HotSalesItemVi
     }
 
     override fun onBindViewHolder(holder: HotSalesItemViewHolder, position: Int) {
-
         val device = getItem(position)
         holder.init(device)
     }

@@ -5,7 +5,7 @@ import com.squareup.moshi.Json
 data class InfoAboutCheckedDeviceJsonAnswer(
     @Json(name = "CPU") val cpu: String,
     val camera: String,
-    @Json(name = "capacity") val romCapacity: List<Int>,
+    @Json(name = "capacity") val romCapacity: List<String>,
     @Json(name = "color") val colors: List<String>,
     val id: String,
     val images: List<String>,

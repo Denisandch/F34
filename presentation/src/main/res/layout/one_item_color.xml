@@ -7,7 +7,4 @@
     android:layout_marginHorizontal="5dp"
     android:background="@drawable/shape_oval"
     xmlns:android="http://schemas.android.com/apk/res/android">
-
-
-
 </FrameLayout>

@@ -18,6 +18,7 @@ import com.example.domain.usecases.GetDevicesMainScreenUseCase
 import com.example.domain.usecases.GetSavedCartInfo
 import kotlinx.coroutines.launch
 
+const val MAX_COUNT_OF_LOT_DEVICES_IN_CART = 9
 class ApplicationViewModel : ViewModel() {
 
     private val deviceRepositoryImplementation = DeviceRepositoryImplementation(DownloadApi())
@@ -60,8 +61,9 @@ class ApplicationViewModel : ViewModel() {
     }
 
     fun upCountOfLot(lot: Lot) {
-        if(lot.count == 9) return
         val index =_cartInfo.value!!.basket.indexOf(lot)
+        if(_cartInfo.value!!.basket[index].count == MAX_COUNT_OF_LOT_DEVICES_IN_CART) return
+
         _totalCountDevices.value = _totalCountDevices.value?.plus(1)
         _cartInfo.value!!.basket[index].count++
         _cartInfo.value!!.basket[index].totalPrice += lot.price

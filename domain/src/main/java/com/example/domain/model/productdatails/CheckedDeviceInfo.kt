@@ -3,7 +3,7 @@ package com.example.domain.model.productdatails
 data class CheckedDeviceInfo(
     val cpu: String,
     val camera: String,
-    val romCapacity: List<Int>,
+    val romCapacity: List<String>,
     val colors: List<String>,
     val id: String,
     val images: List<String>,
