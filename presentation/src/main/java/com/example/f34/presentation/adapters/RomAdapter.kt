@@ -5,7 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.f34.R
-import com.example.f34.databinding.OneItemColorBinding
 import com.example.f34.databinding.OneItemRomBinding
 
 class RomAdapter: RecyclerView.Adapter<RomAdapter.RomItemViewHolder>() {

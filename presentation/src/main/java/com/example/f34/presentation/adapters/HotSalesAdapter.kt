@@ -37,7 +37,8 @@ class HotSalesAdapter: ListAdapter<HotSellDevice, HotSalesAdapter.HotSalesItemVi
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HotSalesItemViewHolder {
-        return HotSalesItemViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.one_item_hot_sales,parent,false))
+        return HotSalesItemViewHolder(LayoutInflater.from(parent.context)
+            .inflate(R.layout.one_item_hot_sales,parent,false))
     }
 
     override fun onBindViewHolder(holder: HotSalesItemViewHolder, position: Int) {

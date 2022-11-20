@@ -6,20 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.f34.databinding.FragmentBottomSheetBinding
 import com.example.f34.presentation.viewmodels.ApplicationViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-
 class BottomSheetFragment : BottomSheetDialogFragment() {
 
     private lateinit var bottomSheetBinding: FragmentBottomSheetBinding
     private val viewmodel by viewModel<ApplicationViewModel>()
     private lateinit var adapter: ArrayAdapter<String>
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

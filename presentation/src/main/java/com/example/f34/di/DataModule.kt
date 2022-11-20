@@ -5,7 +5,6 @@ import com.example.data.network.downloadapi.DownloadApi
 import com.example.data.repository.DeviceRepositoryImplementation
 import com.example.domain.repository.DeviceRepositoryInterface
 import org.koin.dsl.module
-import kotlin.math.sin
 
 val dataModule = module {
 
@@ -13,7 +12,7 @@ val dataModule = module {
         DownloadApi()
     }
 
-    single<DeviceRepositoryInterface>{
+    single<DeviceRepositoryInterface> {
         DeviceRepositoryImplementation(deviceNetworkDownload = get())
     }
 

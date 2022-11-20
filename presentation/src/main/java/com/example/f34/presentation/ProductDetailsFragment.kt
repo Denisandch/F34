@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
@@ -109,8 +108,6 @@ class ProductDetailsFragment : Fragment() {
                 pagerAdapter.setList(details.images)
             }
         }
-        Toast.makeText(requireContext(),"  ", Toast.LENGTH_SHORT ).show()
-
     }
 
     override fun onStart() {

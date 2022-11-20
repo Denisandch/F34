@@ -1,19 +1,13 @@
 package com.example.f34.presentation.adapters
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.LinearLayout
 import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager.widget.PagerAdapter
-import androidx.viewpager.widget.ViewPager
 import coil.load
 import com.example.f34.R
-import com.example.f34.databinding.OneItemImageBinding
-import com.example.f34.databinding.OneItemRomBinding
 
 
 class ViewPagerImageAdapter: RecyclerView.Adapter<ViewPagerImageAdapter.ViewPagerHolder>() {

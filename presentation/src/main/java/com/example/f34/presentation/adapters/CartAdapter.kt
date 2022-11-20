@@ -46,7 +46,8 @@ class CartAdapter(val listener: CartInterface): ListAdapter<Lot, CartAdapter.Car
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartItemViewHolder {
-        return CartItemViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.one_item_cart,parent,false))
+        return CartItemViewHolder(LayoutInflater.from(parent.context)
+            .inflate(R.layout.one_item_cart,parent,false))
     }
 
     override fun onBindViewHolder(holder: CartItemViewHolder, position: Int) {

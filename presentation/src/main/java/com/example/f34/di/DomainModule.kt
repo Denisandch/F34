@@ -7,15 +7,15 @@ import org.koin.dsl.module
 
 val domainModule = module {
 
-    factory<GetDetailInfo>{
+    factory<GetDetailInfo> {
         GetDetailInfo(devicesRepository = get())
     }
 
-    factory<GetDevicesMainScreenUseCase>{
+    factory<GetDevicesMainScreenUseCase> {
         GetDevicesMainScreenUseCase(devicesRepository = get())
     }
 
-    factory<GetSavedCartInfo>{
+    factory<GetSavedCartInfo> {
         GetSavedCartInfo(devicesRepository = get())
     }
 

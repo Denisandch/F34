@@ -6,7 +6,7 @@ import com.example.f34.di.dataModule
 import com.example.f34.di.domainModule
 import org.koin.core.context.startKoin
 
-class KoinApp: Application() {
+class KoinApp : Application() {
 
     override fun onCreate() {
         super.onCreate()

@@ -5,10 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.data.network.downloadapi.DownloadApi
 import com.example.domain.model.mainscreen.BestSellerDevice
 import com.example.domain.model.mainscreen.HotSellDevice
-import com.example.data.repository.DeviceRepositoryImplementation
 import com.example.domain.model.cart.CartInfo
 import com.example.domain.model.cart.Lot
 import com.example.domain.model.mainscreen.MainScreenData
@@ -17,7 +15,6 @@ import com.example.domain.usecases.GetDetailInfo
 import com.example.domain.usecases.GetDevicesMainScreenUseCase
 import com.example.domain.usecases.GetSavedCartInfo
 import kotlinx.coroutines.launch
-import kotlin.math.log
 
 const val MAX_COUNT_OF_LOT_DEVICES_IN_CART = 9
 class ApplicationViewModel(
@@ -26,13 +23,6 @@ class ApplicationViewModel(
     private val getSavedCartInfo: GetSavedCartInfo
 
 ) : ViewModel() {
-
-//    private val deviceRepositoryImplementation = DeviceRepositoryImplementation(DownloadApi())
-//
-//    private val getCheckedDeviceInfo = GetDetailInfo(deviceRepositoryImplementation)
-//    private val getDevicesMainScreenUseCase = GetDevicesMainScreenUseCase(deviceRepositoryImplementation)
-//    private val getSavedCartInfo = GetSavedCartInfo(deviceRepositoryImplementation)
-
 
     private val _bestSellerList = MutableLiveData<List<BestSellerDevice>>()
     val bestSellerList: LiveData<List<BestSellerDevice>> = _bestSellerList
@@ -52,12 +42,12 @@ class ApplicationViewModel(
     private val _totalCountDevices = MutableLiveData<Int>(0)
     val totalCountDevices: LiveData<Int> = _totalCountDevices
 
+    private val _listOfBrands = MutableLiveData(emptySet<String>().toMutableSet())
+    val listOfBrands: LiveData<MutableSet<String>> = _listOfBrands
+
     private lateinit var mainScreenData: MainScreenData
     private var filteredList = mutableListOf<BestSellerDevice>()
     private var dataIsDownloaded = false
-
-    private val _listOfBrands = MutableLiveData(emptySet<String>().toMutableSet())
-    val listOfBrands: LiveData<MutableSet<String>> = _listOfBrands
 
     fun addLotToCart(lot: Lot) {
         if(_cartInfo.value!!.basket.contains(lot)) {
