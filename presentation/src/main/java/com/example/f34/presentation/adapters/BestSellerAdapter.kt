@@ -1,4 +1,4 @@
-package com.example.f34.adapters
+package com.example.f34.presentation.adapters
 
 import android.text.Html
 import android.view.LayoutInflater

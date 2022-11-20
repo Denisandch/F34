@@ -1,4 +1,4 @@
-package com.example.f34
+package com.example.f34.presentation
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,16 +9,17 @@ import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.domain.model.cart.Lot
-import com.example.f34.adapters.CartAdapter
-import com.example.f34.adapters.CartInterface
+import com.example.f34.presentation.adapters.CartAdapter
+import com.example.f34.presentation.adapters.CartInterface
 import com.example.f34.databinding.FragmentMyCartBinding
-import com.example.f34.viewmodels.ApplicationViewModel
+import com.example.f34.presentation.viewmodels.ApplicationViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class MyCartFragment : Fragment(), CartInterface {
 
     private val adapterCart = CartAdapter(this)
-    private val viewmodel: ApplicationViewModel by activityViewModels()
+    private val viewmodel by viewModel<ApplicationViewModel>()
     private lateinit var fragmentMyCartBinding: FragmentMyCartBinding
 
     override fun onCreateView(

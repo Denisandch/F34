@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/shadow_white"
     android:paddingBottom="@dimen/bottom_nav_height"
-    tools:context=".MainScreenFragment">
+    tools:context=".presentation.MainScreenFragment">
 
     <include
         android:id="@+id/toolBar"

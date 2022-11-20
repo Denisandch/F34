@@ -1,22 +1,23 @@
-package com.example.f34
+package com.example.f34.presentation
 
 import android.os.Bundle
-import android.util.Log
-import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.activityViewModels
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.f34.R
 import com.example.f34.databinding.ActivityMainBinding
-import com.example.f34.viewmodels.ApplicationViewModel
+import com.example.f34.presentation.viewmodels.ApplicationViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class MainActivity : AppCompatActivity() {
 
-    private val viewModel: ApplicationViewModel by viewModels()
+    private val viewmodel by viewModel<ApplicationViewModel>()
+
     private lateinit var navController: NavController
     private lateinit var activityMainBinding: ActivityMainBinding
 
@@ -26,12 +27,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(activityMainBinding.root)
 
         val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+            supportFragmentManager.findFragmentById(R.id.fragment_container_view) as NavHostFragment
         navController = navHostFragment.navController
 
         activityMainBinding.bottomNav.setupWithNavController(navController)
 
-        viewModel.totalCountDevices.observe(this) {
+        viewmodel.totalCountDevices.observe(this) {
             if (it == 0) activityMainBinding.bottomNav.removeBadge(R.id.cart)
             else activityMainBinding.bottomNav.getOrCreateBadge(R.id.cart).number = it
         }

@@ -1,7 +1,6 @@
-package com.example.f34
+package com.example.f34.presentation
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,18 +8,20 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.domain.model.mainscreen.BestSellerDevice
-import com.example.f34.adapters.BestSellerAdapter
-import com.example.f34.adapters.BestSellerInterface
-import com.example.f34.adapters.HotSalesAdapter
+import com.example.f34.R
+import com.example.f34.presentation.adapters.BestSellerAdapter
+import com.example.f34.presentation.adapters.BestSellerInterface
+import com.example.f34.presentation.adapters.HotSalesAdapter
 import com.example.f34.databinding.FragmentMainScreenBinding
-import com.example.f34.viewmodels.ApplicationViewModel
+import com.example.f34.presentation.viewmodels.ApplicationViewModel
+
 import com.google.android.material.tabs.TabLayout
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class MainScreenFragment : Fragment(), BestSellerInterface {
@@ -34,7 +35,9 @@ class MainScreenFragment : Fragment(), BestSellerInterface {
     )
     private val adapterBest = BestSellerAdapter(this)
     private val adapterHot = HotSalesAdapter()
-    private val viewmodel: ApplicationViewModel by activityViewModels()
+
+    private val viewmodel by viewModel<ApplicationViewModel>()
+
     private lateinit var fragmentMainScreenBinding: FragmentMainScreenBinding
 
     override fun onCreateView(

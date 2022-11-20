@@ -20,7 +20,7 @@
     <string name="full_list">see more</string>
     <string name="show_all_categories">view all</string>
 
-<!--HotSalesCard-->
+    <!--HotSalesCard-->
     <string name="is_new">New</string>
     <string name="tu_buy">Buy now!</string>
 
@@ -44,6 +44,9 @@
     <!--    ProductDetailFragment-->
     <string name="product_detail_title">Product Details</string>
     <string name="add_to_cart">Add to cart</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

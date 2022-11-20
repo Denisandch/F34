@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/shadow_white"
     android:orientation="vertical"
-    tools:context=".MyCartFragment">
+    tools:context=".presentation.MyCartFragment">
 
     <include
         android:id="@+id/toolBar"

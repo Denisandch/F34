@@ -1,4 +1,4 @@
-package com.example.f34.viewmodels
+package com.example.f34.presentation.viewmodels
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -20,13 +20,18 @@ import kotlinx.coroutines.launch
 import kotlin.math.log
 
 const val MAX_COUNT_OF_LOT_DEVICES_IN_CART = 9
-class ApplicationViewModel : ViewModel() {
+class ApplicationViewModel(
+    private val getCheckedDeviceInfo: GetDetailInfo,
+    private val getDevicesMainScreenUseCase: GetDevicesMainScreenUseCase,
+    private val getSavedCartInfo: GetSavedCartInfo
 
-    private val deviceRepositoryImplementation = DeviceRepositoryImplementation(DownloadApi())
+) : ViewModel() {
 
-    private val getCheckedDeviceInfo = GetDetailInfo(deviceRepositoryImplementation)
-    private val getDevicesMainScreenUseCase = GetDevicesMainScreenUseCase(deviceRepositoryImplementation)
-    private val getSavedCartInfo = GetSavedCartInfo(deviceRepositoryImplementation)
+//    private val deviceRepositoryImplementation = DeviceRepositoryImplementation(DownloadApi())
+//
+//    private val getCheckedDeviceInfo = GetDetailInfo(deviceRepositoryImplementation)
+//    private val getDevicesMainScreenUseCase = GetDevicesMainScreenUseCase(deviceRepositoryImplementation)
+//    private val getSavedCartInfo = GetSavedCartInfo(deviceRepositoryImplementation)
 
 
     private val _bestSellerList = MutableLiveData<List<BestSellerDevice>>()

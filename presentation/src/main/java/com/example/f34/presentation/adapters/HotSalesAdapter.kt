@@ -1,4 +1,4 @@
-package com.example.f34.adapters
+package com.example.f34.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +14,9 @@ import com.example.f34.R
 import com.example.f34.databinding.OneItemHotSalesBinding
 
 
-class HotSalesAdapter: ListAdapter<HotSellDevice, HotSalesAdapter.HotSalesItemViewHolder>(DiffCallback) {
+class HotSalesAdapter: ListAdapter<HotSellDevice, HotSalesAdapter.HotSalesItemViewHolder>(
+    DiffCallback
+) {
 
     class HotSalesItemViewHolder(view: View): RecyclerView.ViewHolder(view) {
 

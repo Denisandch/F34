@@ -1,4 +1,4 @@
-package com.example.f34
+package com.example.f34.presentation
 
 import android.os.Bundle
 import android.util.Log
@@ -6,18 +6,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.f34.databinding.FragmentBottomSheetBinding
-import com.example.f34.viewmodels.ApplicationViewModel
+import com.example.f34.presentation.viewmodels.ApplicationViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class BottomSheetFragment : BottomSheetDialogFragment() {
 
     private lateinit var bottomSheetBinding: FragmentBottomSheetBinding
-    private val viewmodel: ApplicationViewModel by activityViewModels()
+    private val viewmodel by viewModel<ApplicationViewModel>()
     private lateinit var adapter: ArrayAdapter<String>
 
 

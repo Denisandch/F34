@@ -1,4 +1,4 @@
-package com.example.f34.adapters
+package com.example.f34.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +13,9 @@ import com.example.domain.model.cart.Lot
 import com.example.f34.R
 import com.example.f34.databinding.OneItemCartBinding
 
-class CartAdapter(val listener: CartInterface): ListAdapter<Lot, CartAdapter.CartItemViewHolder>(DiffCallback) {
+class CartAdapter(val listener: CartInterface): ListAdapter<Lot, CartAdapter.CartItemViewHolder>(
+    DiffCallback
+) {
 
     inner class CartItemViewHolder(view: View): RecyclerView.ViewHolder(view) {
 

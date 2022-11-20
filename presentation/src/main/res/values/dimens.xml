@@ -2,7 +2,7 @@
 <resources>
     <dimen name="bottom_nav_height">56dp</dimen>
 
-<!--SectionName style-->
+    <!--SectionName style-->
     <dimen name="section_name_padding_start">17dp</dimen>
     <dimen name="section_name_size">25sp</dimen>
 

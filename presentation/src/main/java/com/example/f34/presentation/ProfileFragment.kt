@@ -1,12 +1,11 @@
-package com.example.f34
+package com.example.f34.presentation
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import androidx.navigation.fragment.findNavController
+import com.example.f34.R
 
 
 class ProfileFragment : Fragment() {

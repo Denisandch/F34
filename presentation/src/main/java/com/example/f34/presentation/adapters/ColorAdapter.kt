@@ -1,4 +1,4 @@
-package com.example.f34.adapters
+package com.example.f34.presentation.adapters
 
 import android.graphics.Color
 import android.graphics.PorterDuff

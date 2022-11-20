@@ -1,26 +1,25 @@
-package com.example.f34
+package com.example.f34.presentation
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.annotation.NonNull
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
-import androidx.viewpager2.widget.ViewPager2
 import com.example.domain.model.cart.Lot
-import com.example.f34.adapters.ColorAdapter
-import com.example.f34.adapters.RomAdapter
-import com.example.f34.adapters.ViewPagerImageAdapter
+import com.example.f34.R
+import com.example.f34.presentation.adapters.ColorAdapter
+import com.example.f34.presentation.adapters.RomAdapter
+import com.example.f34.presentation.adapters.ViewPagerImageAdapter
 import com.example.f34.databinding.FragmentProductDetailsBinding
-import com.example.f34.viewmodels.ApplicationViewModel
+import com.example.f34.presentation.viewmodels.ApplicationViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlin.math.abs
 
 
@@ -31,7 +30,7 @@ class ProductDetailsFragment : Fragment() {
     private val pagerAdapter = ViewPagerImageAdapter()
 
     private lateinit var fragmentProductDetailsBinding: FragmentProductDetailsBinding
-    private val viewmodel: ApplicationViewModel by activityViewModels()
+    private val viewmodel by viewModel<ApplicationViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

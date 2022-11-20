@@ -24,33 +24,32 @@
             android:layout_marginStart="30dp"
             android:background="@drawable/shape_rounded_corners_button_dark"
             android:src="@drawable/button_back_svg"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             style="@style/ProductTitle.F34.TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@id/exit"
-            app:layout_constraintEnd_toStartOf="@id/cart"
-            app:layout_constraintTop_toTopOf="parent"
+            android:text="@string/product_detail_title"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:text="@string/product_detail_title"/>
+            app:layout_constraintEnd_toStartOf="@id/cart"
+            app:layout_constraintStart_toEndOf="@id/exit"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/cart"
             android:layout_width="37dp"
             android:layout_height="37dp"
+            android:layout_marginEnd="35dp"
             android:background="@drawable/shape_rounded_corners_button_light"
             android:src="@drawable/button_cart_svg"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginEnd="35dp"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </com.google.android.material.appbar.MaterialToolbar>
