@@ -32,6 +32,10 @@ class MainActivity : AppCompatActivity() {
 
         activityMainBinding.bottomNav.setupWithNavController(navController)
 
+        initObserves()
+    }
+
+    private fun initObserves(){
         viewmodel.totalCountDevices.observe(this) {
             if (it == 0) activityMainBinding.bottomNav.removeBadge(R.id.cart)
             else activityMainBinding.bottomNav.getOrCreateBadge(R.id.cart).number = it

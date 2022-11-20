@@ -43,6 +43,16 @@ class ProductDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        fragmentProductDetailsBinding.recyclerColor.adapter = colorAdapter
+        fragmentProductDetailsBinding.recycletCapacity.adapter = romAdapter
+        fragmentProductDetailsBinding.detailsImages.adapter = pagerAdapter
+
+        initOnClickers()
+        viewPagerSetting()
+        initObserves()
+    }
+
+    private fun initOnClickers() {
         fragmentProductDetailsBinding.toolBar.cart.setOnClickListener{
             val botNav = activity?.findViewById<BottomNavigationView>(R.id.bottom_nav)
             findNavController().popBackStack(R.id.productDetailsFragment,true)
@@ -52,31 +62,6 @@ class ProductDetailsFragment : Fragment() {
         fragmentProductDetailsBinding.toolBar.exit.setOnClickListener{
             findNavController().popBackStack()
         }
-
-
-        fragmentProductDetailsBinding.recyclerColor.adapter = colorAdapter
-        fragmentProductDetailsBinding.recycletCapacity.adapter = romAdapter
-        fragmentProductDetailsBinding.detailsImages.adapter = pagerAdapter
-
-        fragmentProductDetailsBinding.apply {
-
-            detailsImages.offscreenPageLimit = 1
-            detailsImages.clipChildren = false
-            detailsImages.clipToPadding = false
-
-            detailsImages.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
-
-            val transformer = CompositePageTransformer()
-
-            transformer.addTransformer(MarginPageTransformer(30))
-            transformer.addTransformer { page, position ->
-                val r = 1 - abs(position)
-                page.scaleY = 0.90f + r * 0.14f
-            }
-            detailsImages.setPageTransformer(transformer)
-
-        }
-
 
         fragmentProductDetailsBinding.addToCart.setOnClickListener {
 
@@ -89,7 +74,9 @@ class ProductDetailsFragment : Fragment() {
 
             viewmodel.addLotToCart(lot)
         }
+    }
 
+    private fun initObserves() {
         viewmodel.checkedDeviceInfo.observe(viewLifecycleOwner) { details ->
             fragmentProductDetailsBinding.apply {
                 detailsTitle.text = details.title
@@ -107,6 +94,27 @@ class ProductDetailsFragment : Fragment() {
 
                 pagerAdapter.setList(details.images)
             }
+        }
+    }
+
+    private fun viewPagerSetting() {
+        fragmentProductDetailsBinding.apply {
+
+            detailsImages.offscreenPageLimit = 1
+            detailsImages.clipChildren = false
+            detailsImages.clipToPadding = false
+
+            detailsImages.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
+
+            val transformer = CompositePageTransformer()
+
+            transformer.addTransformer(MarginPageTransformer(30))
+            transformer.addTransformer { page, position ->
+                val r = 1 - abs(position)
+                page.scaleY = 0.90f + r * 0.14f
+            }
+            detailsImages.setPageTransformer(transformer)
+
         }
     }
 

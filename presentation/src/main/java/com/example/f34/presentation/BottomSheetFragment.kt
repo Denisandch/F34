@@ -29,17 +29,18 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        bottomSheetBinding.toolBar.exit.setOnClickListener {
-            findNavController().popBackStack()
-        }
-
         adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-
         bottomSheetBinding.filterBrand.adapter = adapter
 
-        viewmodel.listOfBrands.observe(viewLifecycleOwner) {
-            adapter.addAll(it)
+        initOnClickers()
+        initObserves()
+
+    }
+
+    private fun initOnClickers() {
+        bottomSheetBinding.toolBar.exit.setOnClickListener {
+            findNavController().popBackStack()
         }
 
         bottomSheetBinding.toolBar.applyFilter.setOnClickListener {
@@ -69,10 +70,16 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
 
             viewmodel.applyFilters(
                 brand = brand,
-            lowPrice = lowPrice,
-            highPrice = highPrice)
+                lowPrice = lowPrice,
+                highPrice = highPrice)
 
             findNavController().popBackStack()
+        }
+    }
+
+    private fun initObserves(){
+        viewmodel.listOfBrands.observe(viewLifecycleOwner) {
+            adapter.addAll(it)
         }
     }
 

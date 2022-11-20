@@ -32,11 +32,11 @@ class MainScreenFragment : Fragment(), BestSellerInterface {
         R.drawable.category_books,
         R.drawable.category_books
     )
+
     private val adapterBest = BestSellerAdapter(this)
     private val adapterHot = HotSalesAdapter()
 
     private val viewmodel by viewModel<ApplicationViewModel>()
-
     private lateinit var fragmentMainScreenBinding: FragmentMainScreenBinding
 
     override fun onCreateView(
@@ -49,23 +49,36 @@ class MainScreenFragment : Fragment(), BestSellerInterface {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        fragmentMainScreenBinding.hotSalesRecycler.adapter = adapterHot
+        fragmentMainScreenBinding.bestSellerRecycler.adapter = adapterBest
+
+        initOnClickers()
+        initTabItems()
+        initObserves()
+        
+        viewmodel.downloadInitialData()
+    }
+
+    private fun initTabItems() {
+        for (i in 0 until fragmentMainScreenBinding.categoriesTabLayout.tabCount) {
+            val shape = LayoutInflater.from(requireContext()).inflate(R.layout.one_item_categories, null) as LinearLayout
+            val textView = shape.findViewById<TextView>(R.id.text_type_of_device)
+            val imageView = shape.findViewById<ImageView>(R.id.category_image)
+
+            textView.text = fragmentMainScreenBinding.categoriesTabLayout.getTabAt(i)!!.text.toString()
+            imageView.setImageResource(imageArray[i])
+            fragmentMainScreenBinding.categoriesTabLayout.getTabAt(i)!!.customView = shape
+        }
+    }
+
+    private fun initOnClickers() {
         fragmentMainScreenBinding.toolBar.mainScreenToolBar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.filter -> findNavController().navigate(R.id.action_explorer_to_bottomSheetFragment)
             }
             true
         }
-
-            for (i in 0 until fragmentMainScreenBinding.categoriesTabLayout.tabCount) {
-                val shape = LayoutInflater.from(requireContext()).inflate(R.layout.one_item_categories, null) as LinearLayout
-                val textView = shape.findViewById<TextView>(R.id.text_type_of_device)
-                val imageView = shape.findViewById<ImageView>(R.id.category_image)
-
-                textView.text = fragmentMainScreenBinding.categoriesTabLayout.getTabAt(i)!!.text.toString()
-                imageView.setImageResource(imageArray[i])
-                fragmentMainScreenBinding.categoriesTabLayout.getTabAt(i)!!.customView = shape
-            }
-
 
         fragmentMainScreenBinding.categoriesTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
             override fun onTabSelected(tab: TabLayout.Tab) {
@@ -81,18 +94,15 @@ class MainScreenFragment : Fragment(), BestSellerInterface {
             }
 
         })
+    }
 
-        fragmentMainScreenBinding.hotSalesRecycler.adapter = adapterHot
-        fragmentMainScreenBinding.bestSellerRecycler.adapter = adapterBest
-
+    private fun initObserves() {
         viewmodel.hotSalesList.observe(viewLifecycleOwner) {
             adapterHot.submitList(it)
         }
         viewmodel.bestSellerList.observe(viewLifecycleOwner) {
             adapterBest.submitList(it)
         }
-
-        viewmodel.downloadInitialData()
     }
 
     override fun tapFavorites(device: BestSellerDevice) {

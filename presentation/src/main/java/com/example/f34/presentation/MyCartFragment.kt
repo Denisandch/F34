@@ -33,19 +33,24 @@ class MyCartFragment : Fragment(), CartInterface {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        fragmentMyCartBinding.cartRecycler.adapter = adapterCart
+        initOnClickers()
+        initObserves()
+    }
+
+    private fun initOnClickers() {
         fragmentMyCartBinding.toolBar.exit.setOnClickListener {
             findNavController().popBackStack()
         }
         fragmentMyCartBinding.toolBar.location.setOnClickListener {
             Toast.makeText(requireContext(), "Temporary Empty", Toast.LENGTH_SHORT).show()
         }
+    }
 
-        fragmentMyCartBinding.cartRecycler.adapter = adapterCart
-
+    private fun initObserves() {
         viewmodel.cartInfo.observe(viewLifecycleOwner) {
             adapterCart.submitList(it.basket)
             adapterCart.notifyDataSetChanged()
-
         }
 
         viewmodel.cartInfo.observe(viewLifecycleOwner) {
@@ -55,7 +60,6 @@ class MyCartFragment : Fragment(), CartInterface {
         viewmodel.totalPrice.observe(viewLifecycleOwner) {
             fragmentMyCartBinding.cartSummaryCost.text = "\$${it} us"
         }
-
     }
 
     override fun upCount(lot: Lot) {
