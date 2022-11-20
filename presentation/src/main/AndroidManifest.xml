@@ -33,7 +33,7 @@
         <activity
             android:name=".presentation.MainActivity"
             android:exported="false"
-            android:screenOrientation="fullSensor">
+            android:screenOrientation="portrait">
 
             <meta-data
                 android:name="android.app.lib_name"
