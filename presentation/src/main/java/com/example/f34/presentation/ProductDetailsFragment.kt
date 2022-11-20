@@ -77,14 +77,8 @@ class ProductDetailsFragment : Fragment() {
                 viewmodel.addLotToCart(lot)
             } catch (e: Exception) {
                 Toast.makeText(requireContext(), viewmodel.connectionResult.value, Toast.LENGTH_SHORT).show()
-            }
-        }
 
-        fragmentProductDetailsBinding.productScreenRefresh.setOnRefreshListener {
-            viewmodel.downloadInfoCheckedDevice()
-            Handler(Looper.getMainLooper()).postDelayed({
-                fragmentProductDetailsBinding.productScreenRefresh.isRefreshing = false
-            }, 1500)
+            }
         }
     }
 
@@ -112,6 +106,9 @@ class ProductDetailsFragment : Fragment() {
         viewmodel.connectionResult.observe(viewLifecycleOwner) {
             if (it != Constans.SUCCESS) {
                 Toast.makeText(requireContext(), Constans.ERROR, Toast.LENGTH_SHORT).show()
+                Handler(Looper.getMainLooper()).postDelayed({
+                    viewmodel.downloadInfoCheckedDevice()
+                }, 2000)
             }
         }
     }

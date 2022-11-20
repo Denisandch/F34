@@ -1,177 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_screen_refresh"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/shadow_white"
+    android:paddingBottom="@dimen/bottom_nav_height"
+    tools:context=".presentation.MainScreenFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <include
+        android:id="@+id/toolBar"
+        layout="@layout/toolbar_main_screen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+    </include>
+
+
+    <TextView
+        android:id="@+id/select_category"
+        style="@style/SectionName.F34.TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/categories"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolBar" />
+
+    <TextView
+        android:id="@+id/open_all_categories"
+        style="@style/OpenAll.F34.TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/show_all_categories"
+        app:layout_constraintBottom_toBottomOf="@+id/select_category"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/select_category" />
+
+    <com.google.android.material.tabs.TabLayout
+
+        android:id="@+id/categories_tab_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/shadow_white"
-        android:paddingBottom="@dimen/bottom_nav_height"
-        tools:context=".presentation.MainScreenFragment">
+        android:paddingTop="20dp"
+        android:paddingBottom="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/select_category"
+        app:tabIndicator="@null"
+        app:tabMode="scrollable"
+        app:tabRippleColor="@null">
 
-        <include
-            android:id="@+id/toolBar"
-            layout="@layout/toolbar_main_screen"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/select_category"
-            style="@style/SectionName.F34.TextView"
+        <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/categories"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/toolBar" />
+            android:text="@string/first_category" />
 
-        <TextView
-            android:id="@+id/open_all_categories"
-            style="@style/OpenAll.F34.TextView"
+        <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/show_all_categories"
-            app:layout_constraintBottom_toBottomOf="@+id/select_category"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/select_category" />
+            android:text="@string/second_category" />
 
-        <com.google.android.material.tabs.TabLayout
-
-            android:id="@+id/categories_tab_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/shadow_white"
-            android:paddingTop="20dp"
-            android:paddingBottom="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/select_category"
-            app:tabIndicator="@null"
-            app:tabMode="scrollable"
-            app:tabRippleColor="@null">
-
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/first_category" />
-
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/second_category" />
-
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/third_category" />
-
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/fourth_category" />
-
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/fifth_category" />
-
-        </com.google.android.material.tabs.TabLayout>
-
-        <SearchView
-            android:id="@+id/searchView"
-            android:layout_width="0dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="11dp"
-            android:background="@drawable/shape_rounded_search_view"
-            android:queryHint="Search"
-            android:searchIcon="@drawable/button_search_svg"
-            app:layout_constraintEnd_toStartOf="@+id/imageFilterButton"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/categories_tab_layout" />
-
-
-        <ImageButton
-            android:id="@+id/imageFilterButton"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginEnd="37dp"
-            android:background="@drawable/shape_oval_orange"
-            android:src="@drawable/button_grid_mod_svg"
-            app:layout_constraintBottom_toBottomOf="@+id/searchView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/categories_tab_layout" />
-
-        <TextView
-            android:id="@+id/hot_sales"
-            style="@style/SectionName.F34.TextView"
+        <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/hot_sales"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/searchView" />
+            android:text="@string/third_category" />
 
-        <TextView
-            android:id="@+id/open_all_hotsales"
-            style="@style/OpenAll.F34.TextView"
+        <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/full_list"
-            app:layout_constraintBottom_toBottomOf="@+id/hot_sales"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/hot_sales" />
+            android:text="@string/fourth_category" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/hot_sales_recycler"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@color/shadow_white"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/hot_sales"
-            tools:listitem="@layout/one_item_hot_sales" />
-
-        <TextView
-            android:id="@+id/best_seller"
-            style="@style/SectionName.F34.TextView"
+        <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/best_seller"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/hot_sales_recycler" />
+            android:text="@string/fifth_category" />
 
-        <TextView
-            android:id="@+id/open_all_best_seller"
-            style="@style/OpenAll.F34.TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/full_list"
-            app:layout_constraintBottom_toBottomOf="@+id/best_seller"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/best_seller" />
+    </com.google.android.material.tabs.TabLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/best_seller_recycler"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/best_seller"
-            app:spanCount="2"
-            tools:listitem="@layout/one_item_best_seller" />
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="11dp"
+        android:background="@drawable/shape_rounded_search_view"
+        android:queryHint="Search"
+        android:searchIcon="@drawable/button_search_svg"
+        app:layout_constraintEnd_toStartOf="@+id/imageFilterButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/categories_tab_layout" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    <ImageButton
+        android:id="@+id/imageFilterButton"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="37dp"
+        android:background="@drawable/shape_oval_orange"
+        android:src="@drawable/button_grid_mod_svg"
+        app:layout_constraintBottom_toBottomOf="@+id/searchView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/categories_tab_layout" />
+
+    <TextView
+        android:id="@+id/hot_sales"
+        style="@style/SectionName.F34.TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/hot_sales"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchView" />
+
+    <TextView
+        android:id="@+id/open_all_hotsales"
+        style="@style/OpenAll.F34.TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/full_list"
+        app:layout_constraintBottom_toBottomOf="@+id/hot_sales"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/hot_sales" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/hot_sales_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/shadow_white"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hot_sales"
+        tools:listitem="@layout/one_item_hot_sales" />
+
+    <TextView
+        android:id="@+id/best_seller"
+        style="@style/SectionName.F34.TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/best_seller"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hot_sales_recycler" />
+
+    <TextView
+        android:id="@+id/open_all_best_seller"
+        style="@style/OpenAll.F34.TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/full_list"
+        app:layout_constraintBottom_toBottomOf="@+id/best_seller"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/best_seller" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/best_seller_recycler"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/best_seller"
+        app:spanCount="2"
+        tools:listitem="@layout/one_item_best_seller" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

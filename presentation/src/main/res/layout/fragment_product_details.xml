@@ -1,288 +1,283 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/product_screen_refresh"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/shadow_white"
+    android:orientation="vertical"
+    tools:context=".presentation.ProductDetailsFragment">
 
-    <LinearLayout
+    <include
+        android:id="@+id/toolBar"
+        layout="@layout/toolbar_product" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/details_images"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/shadow_white"
-        android:orientation="vertical"
-        tools:context=".presentation.ProductDetailsFragment">
+        android:layout_weight="17"
+        android:paddingStart="80dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="80dp"
+        android:paddingBottom="15dp" />
 
-        <include
-            android:id="@+id/toolBar"
-            layout="@layout/toolbar_product" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="12"
 
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/details_images"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="17"
-            android:paddingStart="80dp"
-            android:paddingTop="15dp"
-            android:paddingEnd="80dp"
-            android:paddingBottom="15dp" />
+        android:background="@drawable/shape_rounded_top_corners"
+        android:backgroundTint="@color/white"
+        android:paddingHorizontal="30dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="@dimen/bottom_nav_height">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="12"
-
-            android:background="@drawable/shape_rounded_top_corners"
-            android:backgroundTint="@color/white"
-            android:paddingHorizontal="30dp"
-            android:paddingTop="20dp"
-            android:paddingBottom="@dimen/bottom_nav_height">
-
-            <TextView
-                android:id="@+id/details_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mark_pro_medium"
-                android:textColor="@color/dark_blue"
-                android:textSize="24sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="Galaxy Note 20 Ultra" />
+        <TextView
+            android:id="@+id/details_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/mark_pro_medium"
+            android:textColor="@color/dark_blue"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Galaxy Note 20 Ultra" />
 
 
-            <FrameLayout
-                android:id="@+id/frameLayout3"
-                android:layout_width="37dp"
-                android:layout_height="37dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/shape_rounded_corners_button_dark"
-                android:elevation="1dp"
-                android:visibility="visible"
-                app:layout_constraintBottom_toBottomOf="@+id/details_title"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/details_title">
+        <FrameLayout
+            android:id="@+id/frameLayout3"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/shape_rounded_corners_button_dark"
+            android:elevation="1dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/details_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/details_title">
 
-                <CheckBox
-                    android:id="@+id/details_is_favorite"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:button="@drawable/selector_checkbox_dark"
-                    android:checked="false"
-                    android:theme="@style/LightCheckBoxHeart"
-                    app:itemRippleColor="@null" />
-
-            </FrameLayout>
-
-            <com.willy.ratingbar.ScaleRatingBar
-                android:id="@+id/details_rating_bar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="@+id/details_title"
-                app:layout_constraintTop_toBottomOf="@+id/details_title"
-                app:srb_drawableEmpty="@drawable/rating_bar_empty"
-                app:srb_drawableFilled="@drawable/rating_bar_filled"
-                app:srb_isIndicator="true"
-                app:srb_numStars="5"
-                app:srb_starHeight="18dp"
-                app:srb_starPadding="4dp"
-                app:srb_starWidth="18dp"
-                app:srb_stepSize="0.01" />
-
-            <Button
-                android:id="@+id/add_to_cart"
+            <CheckBox
+                android:id="@+id/details_is_favorite"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_marginBottom="18dp"
-                android:background="@drawable/shape_rounded_corners_button_light"
-                android:fontFamily="@font/mark_pro_bold"
+                android:layout_height="match_parent"
+                android:button="@drawable/selector_checkbox_dark"
+                android:checked="false"
+                android:theme="@style/LightCheckBoxHeart"
+                app:itemRippleColor="@null" />
+
+        </FrameLayout>
+
+        <com.willy.ratingbar.ScaleRatingBar
+            android:id="@+id/details_rating_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/details_title"
+            app:layout_constraintTop_toBottomOf="@+id/details_title"
+            app:srb_drawableEmpty="@drawable/rating_bar_empty"
+            app:srb_drawableFilled="@drawable/rating_bar_filled"
+            app:srb_isIndicator="true"
+            app:srb_numStars="5"
+            app:srb_starHeight="18dp"
+            app:srb_starPadding="4dp"
+            app:srb_starWidth="18dp"
+            app:srb_stepSize="0.01" />
+
+        <Button
+            android:id="@+id/add_to_cart"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginBottom="18dp"
+            android:background="@drawable/shape_rounded_corners_button_light"
+            android:fontFamily="@font/mark_pro_bold"
+            android:gravity="center"
+            android:paddingTop="0dp"
+            android:text="@string/add_to_cart"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/params_tab_layout"
+            style="@style/TabLayoutProductDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/details_rating_bar"
+            app:tabIndicatorColor="@color/light_orange"
+            app:tabRippleColor="@null">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tabShop"
+                android:textAllCaps="false" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tabDetails"
+                android:textAllCaps="false" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tabFeatures"
+                android:textAllCaps="false" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/linearLayoutCompat2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/textView2"
+            app:layout_constraintEnd_toEndOf="@id/params_tab_layout"
+            app:layout_constraintStart_toStartOf="@+id/params_tab_layout"
+            app:layout_constraintTop_toBottomOf="@+id/params_tab_layout">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:gravity="center"
-                android:paddingTop="0dp"
-                android:text="@string/add_to_cart"
-                android:textAllCaps="false"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                android:orientation="vertical">
 
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/params_tab_layout"
-                style="@style/TabLayoutProductDetails"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:textAllCaps="false"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/details_rating_bar"
-                app:tabIndicatorColor="@color/light_orange"
-                app:tabRippleColor="@null">
-
-                <com.google.android.material.tabs.TabItem
+                <ImageView
+                    android:id="@+id/cpu_image"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/tabShop"
-                    android:textAllCaps="false" />
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/image_cpu_svg" />
 
-                <com.google.android.material.tabs.TabItem
+                <TextView
+                    android:id="@+id/cpu_description"
+                    style="@style/ProductDetailsDescription.F34.TextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/tabDetails"
-                    android:textAllCaps="false" />
+                    android:layout_marginTop="3dp"
+                    tools:text="Exynos 990" />
+            </LinearLayout>
 
-                <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/tabFeatures"
-                    android:textAllCaps="false" />
-
-            </com.google.android.material.tabs.TabLayout>
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:id="@+id/linearLayoutCompat2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="bottom"
-                android:orientation="horizontal"
-                app:layout_constraintBottom_toTopOf="@+id/textView2"
-                app:layout_constraintEnd_toEndOf="@id/params_tab_layout"
-                app:layout_constraintStart_toStartOf="@+id/params_tab_layout"
-                app:layout_constraintTop_toBottomOf="@+id/params_tab_layout">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/cpu_image"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:src="@drawable/image_cpu_svg" />
-
-                    <TextView
-                        android:id="@+id/cpu_description"
-                        style="@style/ProductDetailsDescription.F34.TextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
-                        tools:text="Exynos 990" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/camera_image"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:src="@drawable/image_camera_svg" />
-
-                    <TextView
-                        android:id="@+id/camera_description"
-                        style="@style/ProductDetailsDescription.F34.TextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
-                        tools:text="108 + 12 mp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/ram_image"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:src="@drawable/image_ram_svg" />
-
-                    <TextView
-                        android:id="@+id/ram_description"
-                        style="@style/ProductDetailsDescription.F34.TextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
-                        tools:text="8 GB" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/rom_image"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:src="@drawable/image_rom_svg" />
-
-                    <TextView
-                        android:id="@+id/rom_description"
-                        style="@style/ProductDetailsDescription.F34.TextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
-                        tools:text="256 GB" />
-
-                </LinearLayout>
-
-            </androidx.appcompat.widget.LinearLayoutCompat>
-
-            <TextView
-                android:id="@+id/textView2"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:fontFamily="@font/mark_pro_medium"
-                android:text="@string/select_details"
-                android:textColor="@color/dark_blue"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf="@+id/recycler_color"
-                app:layout_constraintStart_toStartOf="@+id/add_to_cart" />
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_color"
-                android:layout_width="150dp"
-                android:layout_height="40dp"
-                android:layout_marginBottom="10dp"
-                android:orientation="horizontal"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintBottom_toTopOf="@+id/add_to_cart"
-                app:layout_constraintStart_toStartOf="@+id/add_to_cart"
-                tools:itemCount="3"
-                tools:listitem="@layout/one_item_color" />
+                <ImageView
+                    android:id="@+id/camera_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/image_camera_svg" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclet_capacity"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:orientation="horizontal"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintBottom_toBottomOf="@+id/recycler_color"
-                app:layout_constraintEnd_toEndOf="@+id/add_to_cart"
-                app:layout_constraintStart_toEndOf="@+id/recycler_color"
-                tools:listitem="@layout/one_item_rom" />
+                <TextView
+                    android:id="@+id/camera_description"
+                    style="@style/ProductDetailsDescription.F34.TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    tools:text="108 + 12 mp" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
 
-</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+                <ImageView
+                    android:id="@+id/ram_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/image_ram_svg" />
+
+                <TextView
+                    android:id="@+id/ram_description"
+                    style="@style/ProductDetailsDescription.F34.TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    tools:text="8 GB" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/rom_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/image_rom_svg" />
+
+                <TextView
+                    android:id="@+id/rom_description"
+                    style="@style/ProductDetailsDescription.F34.TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    tools:text="256 GB" />
+
+            </LinearLayout>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/mark_pro_medium"
+            android:text="@string/select_details"
+            android:textColor="@color/dark_blue"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/recycler_color"
+            app:layout_constraintStart_toStartOf="@+id/add_to_cart" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_color"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/add_to_cart"
+            app:layout_constraintStart_toStartOf="@+id/add_to_cart"
+            tools:itemCount="3"
+            tools:listitem="@layout/one_item_color" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclet_capacity"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="@+id/recycler_color"
+            app:layout_constraintEnd_toEndOf="@+id/add_to_cart"
+            app:layout_constraintStart_toEndOf="@+id/recycler_color"
+            tools:listitem="@layout/one_item_rom" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
+

@@ -99,14 +99,6 @@ class MainScreenFragment : Fragment(), BestSellerInterface {
 
         })
 
-
-        fragmentMainScreenBinding.mainScreenRefresh.setOnRefreshListener {
-
-            viewmodel.downloadInitialData()
-            Handler(Looper.getMainLooper()).postDelayed({
-                fragmentMainScreenBinding.mainScreenRefresh.isRefreshing = false
-            }, 1500)
-        }
     }
 
     private fun initObserves() {
@@ -120,6 +112,9 @@ class MainScreenFragment : Fragment(), BestSellerInterface {
         viewmodel.connectionResult.observe(viewLifecycleOwner) {
             if (it != Constans.SUCCESS) {
                 Toast.makeText(requireContext(), Constans.ERROR, Toast.LENGTH_SHORT).show()
+                Handler(Looper.getMainLooper()).postDelayed({
+                    viewmodel.downloadInitialData()
+                }, 2000)
             }
         }
     }
