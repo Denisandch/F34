@@ -1,6 +1,9 @@
 package com.example.f34.presentation
 
+import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +11,7 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -56,7 +60,7 @@ class MainScreenFragment : Fragment(), BestSellerInterface {
         initOnClickers()
         initTabItems()
         initObserves()
-        
+
         viewmodel.downloadInitialData()
     }
 
@@ -94,6 +98,15 @@ class MainScreenFragment : Fragment(), BestSellerInterface {
             }
 
         })
+
+
+        fragmentMainScreenBinding.mainScreenRefresh.setOnRefreshListener {
+
+            viewmodel.downloadInitialData()
+            Handler(Looper.getMainLooper()).postDelayed({
+                fragmentMainScreenBinding.mainScreenRefresh.isRefreshing = false
+            }, 1500)
+        }
     }
 
     private fun initObserves() {
@@ -102,6 +115,12 @@ class MainScreenFragment : Fragment(), BestSellerInterface {
         }
         viewmodel.bestSellerList.observe(viewLifecycleOwner) {
             adapterBest.submitList(it)
+        }
+
+        viewmodel.connectionResult.observe(viewLifecycleOwner) {
+            if (it != Constans.SUCCESS) {
+                Toast.makeText(requireContext(), Constans.ERROR, Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

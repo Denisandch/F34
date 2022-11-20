@@ -1,6 +1,8 @@
 package com.example.f34.presentation
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -64,15 +66,25 @@ class ProductDetailsFragment : Fragment() {
         }
 
         fragmentProductDetailsBinding.addToCart.setOnClickListener {
+            try{
+                val lot = Lot(
+                    id = viewmodel.checkedDeviceInfo.value!!.id.toInt(),
+                    images = viewmodel.checkedDeviceInfo.value!!.images[0],
+                    price = viewmodel.checkedDeviceInfo.value!!.price,
+                    title = viewmodel.checkedDeviceInfo.value!!.title
+                )
 
-            val lot = Lot(
-                id = viewmodel.checkedDeviceInfo.value!!.id.toInt(),
-                images = viewmodel.checkedDeviceInfo.value!!.images[0],
-                price = viewmodel.checkedDeviceInfo.value!!.price,
-                title = viewmodel.checkedDeviceInfo.value!!.title
-            )
+                viewmodel.addLotToCart(lot)
+            } catch (e: Exception) {
+                Toast.makeText(requireContext(), viewmodel.connectionResult.value, Toast.LENGTH_SHORT).show()
+            }
+        }
 
-            viewmodel.addLotToCart(lot)
+        fragmentProductDetailsBinding.productScreenRefresh.setOnRefreshListener {
+            viewmodel.downloadInfoCheckedDevice()
+            Handler(Looper.getMainLooper()).postDelayed({
+                fragmentProductDetailsBinding.productScreenRefresh.isRefreshing = false
+            }, 1500)
         }
     }
 
@@ -93,6 +105,13 @@ class ProductDetailsFragment : Fragment() {
                 addToCart.text = "Add to cart \$${details.price}"
 
                 pagerAdapter.setList(details.images)
+            }
+        }
+
+
+        viewmodel.connectionResult.observe(viewLifecycleOwner) {
+            if (it != Constans.SUCCESS) {
+                Toast.makeText(requireContext(), Constans.ERROR, Toast.LENGTH_SHORT).show()
             }
         }
     }

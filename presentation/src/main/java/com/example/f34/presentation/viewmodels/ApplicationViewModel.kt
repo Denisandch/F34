@@ -14,9 +14,9 @@ import com.example.domain.model.productdatails.CheckedDeviceInfo
 import com.example.domain.usecases.GetDetailInfo
 import com.example.domain.usecases.GetDevicesMainScreenUseCase
 import com.example.domain.usecases.GetSavedCartInfo
+import com.example.f34.presentation.Constans
 import kotlinx.coroutines.launch
 
-const val MAX_COUNT_OF_LOT_DEVICES_IN_CART = 9
 class ApplicationViewModel(
     private val getCheckedDeviceInfo: GetDetailInfo,
     private val getDevicesMainScreenUseCase: GetDevicesMainScreenUseCase,
@@ -33,6 +33,9 @@ class ApplicationViewModel(
     private val _checkedDeviceInfo = MutableLiveData<CheckedDeviceInfo>()
     val checkedDeviceInfo: LiveData<CheckedDeviceInfo> = _checkedDeviceInfo
 
+    private val _connectionResult = MutableLiveData<String>()
+    val connectionResult: LiveData<String> = _connectionResult
+
     private val _cartInfo = MutableLiveData<CartInfo>()
     val cartInfo: LiveData<CartInfo> = _cartInfo
 
@@ -47,7 +50,8 @@ class ApplicationViewModel(
 
     private lateinit var mainScreenData: MainScreenData
     private var filteredList = mutableListOf<BestSellerDevice>()
-    private var dataIsDownloaded = false
+    private var mainDataIsDownloaded = false
+    private var detailsDataIsDownloaded = false
 
     fun addLotToCart(lot: Lot) {
         if(_cartInfo.value!!.basket.contains(lot)) {
@@ -62,7 +66,7 @@ class ApplicationViewModel(
 
     fun upCountOfLot(lot: Lot) {
         val index =_cartInfo.value!!.basket.indexOf(lot)
-        if(_cartInfo.value!!.basket[index].count == MAX_COUNT_OF_LOT_DEVICES_IN_CART) return
+        if(_cartInfo.value!!.basket[index].count == Constans.MAX_COUNT_OF_LOT_DEVICES_IN_CART) return
 
         _totalCountDevices.value = _totalCountDevices.value?.plus(1)
         _cartInfo.value!!.basket[index].count++
@@ -109,23 +113,37 @@ class ApplicationViewModel(
     }
 
     fun downloadInitialData() {
-        if(!dataIsDownloaded) {
-            viewModelScope.launch {
-                mainScreenData =
-                    getDevicesMainScreenUseCase.getDevicesForMainScreen("654bd15e-b121-49ba-a588-960956b15175")
+            if(!mainDataIsDownloaded) {
+                viewModelScope.launch {
+                    try {
+                        mainScreenData =
+                            getDevicesMainScreenUseCase.getDevicesForMainScreen("654bd15e-b121-49ba-a588-960956b15175")
 
-                _cartInfo.value =
-                    getSavedCartInfo.getCartInfo("53539a72-3c5f-4f30-bbb1-6ca10d42c149")
+                        _cartInfo.value =
+                            getSavedCartInfo.getCartInfo("53539a72-3c5f-4f30-bbb1-6ca10d42c149")
 
-                initialProperties()
+                        initialProperties()
+                        _connectionResult.value = Constans.SUCCESS
+                        mainDataIsDownloaded = true
+
+                    } catch (e: Exception) {
+                        _connectionResult.value = Constans.ERROR
+                    }
+                }
             }
-            dataIsDownloaded = true
-        }
     }
 
     fun downloadInfoCheckedDevice(checkedDevice: String = "6c14c560-15c6-4248-b9d2-b4508df7d4f5") {
-        viewModelScope.launch {
-            _checkedDeviceInfo.value = getCheckedDeviceInfo.getDetailInfo(checkedDevice)
+        if(!detailsDataIsDownloaded) {
+            viewModelScope.launch {
+                try {
+                    _checkedDeviceInfo.value = getCheckedDeviceInfo.getDetailInfo(checkedDevice)
+                    _connectionResult.value = Constans.SUCCESS
+                    detailsDataIsDownloaded = true
+                } catch (e: Exception) {
+                    _connectionResult.value = Constans.ERROR
+                }
+            }
         }
     }
 
