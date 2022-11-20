@@ -17,9 +17,9 @@
         tools:targetApi="31">
 
         <activity
-            android:theme="@style/Theme.F34.Splash"
             android:name=".presentation.SplashActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.F34.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,7 +33,7 @@
         <activity
             android:name=".presentation.MainActivity"
             android:exported="false"
-            android:screenOrientation="portrait">
+            android:screenOrientation="fullSensor">
 
             <meta-data
                 android:name="android.app.lib_name"

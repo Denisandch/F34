@@ -21,17 +21,17 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/ff"/>
+            tools:src="@drawable/ff" />
 
         <FrameLayout
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:layout_marginEnd="12dp"
             android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
             android:background="@drawable/shape_oval_orange"
-            android:visibility="visible"
-            android:elevation="1dp"
             android:backgroundTint="@color/white"
+            android:elevation="1dp"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -39,33 +39,29 @@
                 android:id="@+id/is_favorite"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:itemRippleColor="@null"
+                android:button="@drawable/selector_checkbox_light"
                 android:theme="@style/LightCheckBoxHeart"
-                android:button="@drawable/selector_checkbox_light"/>
+                app:itemRippleColor="@null" />
 
         </FrameLayout>
 
 
         <TextView
-            tools:text="$1,500"
             android:id="@+id/price"
+            style="@style/bestSellerItemNewPrice"
             android:layout_width="wrap_content"
-            android:layout_marginStart="20dp"
-            android:textSize="16sp"
-            android:textColor="@color/dark_blue"
-            android:fontFamily="@font/mark_pro_bold"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/best_seller_image"
-            app:layout_constraintStart_toStartOf="parent"/>
+            tools:text="$1,500" />
 
         <TextView
             android:id="@+id/price_without_discount"
+            style="@style/bestSellerItemOldPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:fontFamily="@font/mark_pro_medium"
-            android:textColor="@color/silver"
-            android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="@+id/price"
             app:layout_constraintStart_toEndOf="@+id/price"
             app:layout_constraintTop_toTopOf="@+id/price"
@@ -73,15 +69,12 @@
 
         <TextView
             android:id="@+id/title"
+            style="@style/bestSellerItemTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:fontFamily="@font/mark_pro_regular"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="15dp"
-            android:textSize="10sp"
-            android:textColor="@color/dark_blue"
-
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/price"

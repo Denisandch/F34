@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="SectionName.F34.TextView" parent="Widget.MaterialComponents.TextView">
         <item name="android:fontFamily">@font/mark_pro_bold</item>
         <item name="android:textSize">@dimen/section_name_size</item>
@@ -69,5 +70,49 @@
         <item name="fontFamily">@font/mark_pro_bold</item>
         <item name="android:textSize">20sp</item>
     </style>
+
+    <style name="ROMtextItem" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">#8D8D8D</item>
+        <item name="fontFamily">@font/mark_pro_bold</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="selectCategoryItem" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/dark_blue</item>
+        <item name="fontFamily">@font/mark_pro_medium</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="cartItemTitle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/shadow_white</item>
+        <item name="fontFamily">@font/mark_pro_medium</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="cartItemCount" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/shadow_white</item>
+        <item name="fontFamily">@font/mark_pro_medium</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="bestSellerItemNewPrice" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/dark_blue</item>
+        <item name="fontFamily">@font/mark_pro_bold</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="bestSellerItemOldPrice" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/silver</item>
+        <item name="fontFamily">@font/mark_pro_medium</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="bestSellerItemTitle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/dark_blue</item>
+        <item name="fontFamily">@font/mark_pro_regular</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+
 
 </resources>

@@ -35,34 +35,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/select_category" />
 
-<!--        <RadioGroup-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="150dp"-->
-<!--            android:orientation="horizontal"-->
-<!--            android:id="@+id/categories_tab_layout"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/select_category" >-->
-
-<!--            <RadioButton-->
-<!--                android:drawableTop="@drawable/testsel"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:text="dfdf"-->
-<!--                android:padding="0dp"-->
-<!--                android:layout_margin="0dp"-->
-<!--                android:gravity="bottom|center"-->
-<!--                android:button="@null"-->
-<!--                android:layout_width="90dp"-->
-<!--                android:layout_height="100dp" />-->
-
-<!--            <RadioButton-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:text="dsfsd"-->
-<!--                android:layout_height="wrap_content"/>-->
-
-<!--        </RadioGroup>-->
-
-
     <com.google.android.material.tabs.TabLayout
 
         android:id="@+id/categories_tab_layout"
@@ -81,31 +53,29 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Phones"
-           />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:text="Computer"
-            android:layout_height="wrap_content" />
+            android:text="@string/first_category" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Health" />
+            android:text="@string/second_category" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Books" />
+            android:text="@string/third_category" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Something" />
+            android:text="@string/fourth_category" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fifth_category" />
 
     </com.google.android.material.tabs.TabLayout>
-
 
     <SearchView
         android:id="@+id/searchView"

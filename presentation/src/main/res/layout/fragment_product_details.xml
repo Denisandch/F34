@@ -12,7 +12,6 @@
         android:id="@+id/toolBar"
         layout="@layout/toolbar_product" />
 
-
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/details_images"
         android:layout_width="match_parent"
@@ -39,11 +38,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/mark_pro_medium"
-            android:text="Galaxy Note 20 Ultra"
             android:textColor="@color/dark_blue"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Galaxy Note 20 Ultra" />
 
 
         <FrameLayout
@@ -116,22 +115,21 @@
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Shop"
-                android:textAllCaps="false" />
-
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-
-                android:layout_height="wrap_content"
-                android:text="Details"
+                android:text="@string/tabShop"
                 android:textAllCaps="false" />
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                android:text="Features"
+                android:text="@string/tabDetails"
                 android:textAllCaps="false" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tabFeatures"
+                android:textAllCaps="false" />
+
         </com.google.android.material.tabs.TabLayout>
 
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -248,7 +246,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:fontFamily="@font/mark_pro_medium"
-            android:text="Select color and capacity"
+            android:text="@string/select_details"
             android:textColor="@color/dark_blue"
             android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/recycler_color"

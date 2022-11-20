@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="190dp"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="8dp"
     app:cardCornerRadius="10dp">
 
@@ -26,9 +26,9 @@
             android:layout_height="30dp"
             android:background="@drawable/shape_oval_orange"
             android:visibility="invisible"
-            tools:visibility="visible"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible">
 
             <TextView
                 android:layout_width="match_parent"
@@ -46,11 +46,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
             android:fontFamily="@font/mark_pro_bold"
-            tools:text="Iphone 12"
             android:textColor="@color/white"
             android:textSize="25sp"
             app:layout_constraintStart_toStartOf="@+id/is_new_marker"
-            app:layout_constraintTop_toBottomOf="@+id/is_new_marker" />
+            app:layout_constraintTop_toBottomOf="@+id/is_new_marker"
+            tools:text="Iphone 12" />
 
         <TextView
             android:id="@+id/hot_sale_description"
@@ -58,11 +58,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:fontFamily="@font/mark_pro_regular"
-            tools:text="Super.Mega.Rapido."
             android:textColor="@color/white"
             android:textSize="11sp"
             app:layout_constraintStart_toStartOf="@+id/is_new_marker"
-            app:layout_constraintTop_toBottomOf="@+id/hot_sale_title" />
+            app:layout_constraintTop_toBottomOf="@+id/hot_sale_title"
+            tools:text="Super.Mega.Rapido." />
 
 
         <FrameLayout

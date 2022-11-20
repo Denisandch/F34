@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/back"
     android:layout_width="70dp"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <FrameLayout
         android:id="@+id/category_background"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        app:cardCornerRadius="45dp"
-        android:background="@drawable/shape_oval_white">
+        android:background="@drawable/shape_oval_white"
+        app:cardCornerRadius="45dp">
 
         <ImageView
             android:id="@+id/category_image"
@@ -24,11 +25,9 @@
 
     <TextView
         android:id="@+id/text_type_of_device"
-        android:text="Phones"
-        android:textColor="@color/dark_blue"
-        android:fontFamily="@font/mark_pro_medium"
-        android:textSize="12sp"
-        android:gravity="center"
+        style="@style/selectCategoryItem"
         android:layout_width="match_parent"
-        android:layout_height="20dp" />
+        android:layout_height="20dp"
+        android:gravity="center"
+        tools:text="Phones" />
 </LinearLayout>

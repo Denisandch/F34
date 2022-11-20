@@ -28,15 +28,13 @@
 
     <TextView
         android:id="@+id/cart_title"
+        style="@style/cartItemTitle"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:fontFamily="@font/mark_pro_medium"
         android:gravity="top|start"
         android:paddingStart="5dp"
         android:paddingTop="5dp"
         android:paddingEnd="15dp"
-        android:textColor="@color/shadow_white"
-        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/cart_price"
         app:layout_constraintEnd_toStartOf="@+id/linearLayoutCompat"
         app:layout_constraintStart_toEndOf="@id/card_image"
@@ -89,16 +87,13 @@
 
         <TextView
             android:id="@+id/cart_item_counter"
+            style="@style/cartItemCount"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:fontFamily="@font/mark_pro_medium"
             android:gravity="center"
-            android:textColor="@color/shadow_white"
-            android:textSize="20sp"
-            android:maxLines="1"
             android:maxLength="1"
-            android:text="1"
+            android:maxLines="1"
             tools:text="2" />
 
         <ImageButton

@@ -29,10 +29,9 @@
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:spinnerMode="dialog"
-            android:entries="@array/debug" />
+            android:entries="@array/debug"
+            android:spinnerMode="dialog" />
 
     </LinearLayout>
-
 
 </com.google.android.material.appbar.MaterialToolbar>
