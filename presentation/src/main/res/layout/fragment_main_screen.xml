@@ -35,8 +35,37 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/select_category" />
 
+<!--        <RadioGroup-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="150dp"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:id="@+id/categories_tab_layout"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/select_category" >-->
+
+<!--            <RadioButton-->
+<!--                android:drawableTop="@drawable/testsel"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:text="dfdf"-->
+<!--                android:padding="0dp"-->
+<!--                android:layout_margin="0dp"-->
+<!--                android:gravity="bottom|center"-->
+<!--                android:button="@null"-->
+<!--                android:layout_width="90dp"-->
+<!--                android:layout_height="100dp" />-->
+
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:text="dsfsd"-->
+<!--                android:layout_height="wrap_content"/>-->
+
+<!--        </RadioGroup>-->
+
+
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/categories"
+
+        android:id="@+id/categories_tab_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/shadow_white"
@@ -44,22 +73,37 @@
         android:paddingBottom="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/select_category">
+        app:layout_constraintTop_toBottomOf="@+id/select_category"
+        app:tabIndicator="@null"
+        app:tabMode="scrollable"
+        app:tabRippleColor="@null">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Monday" />
+            android:text="Phones"
+           />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:text="Computer"
+            android:layout_height="wrap_content" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tuesday" />
+            android:text="Health" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Wednesday" />
+            android:text="Books" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Something" />
+
     </com.google.android.material.tabs.TabLayout>
 
 
@@ -74,7 +118,7 @@
         android:searchIcon="@drawable/button_search_svg"
         app:layout_constraintEnd_toStartOf="@+id/imageFilterButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/categories" />
+        app:layout_constraintTop_toBottomOf="@+id/categories_tab_layout" />
 
 
     <ImageButton
@@ -82,11 +126,11 @@
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginEnd="37dp"
-        android:background="@drawable/shape_oval"
+        android:background="@drawable/shape_oval_orange"
         android:src="@drawable/button_grid_mod_svg"
         app:layout_constraintBottom_toBottomOf="@+id/searchView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/categories" />
+        app:layout_constraintTop_toBottomOf="@+id/categories_tab_layout" />
 
     <TextView
         android:id="@+id/hot_sales"
@@ -110,15 +154,15 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/hot_sales_recycler"
-        android:background="@color/shadow_white"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        tools:listitem="@layout/one_item_hot_sales"
+        android:background="@color/shadow_white"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/hot_sales" />
+        app:layout_constraintTop_toBottomOf="@id/hot_sales"
+        tools:listitem="@layout/one_item_hot_sales" />
 
     <TextView
         android:id="@+id/best_seller"
@@ -144,13 +188,13 @@
         android:id="@+id/best_seller_recycler"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        tools:listitem="@layout/one_item_best_seller"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/best_seller"
-        app:spanCount="2" />
+        app:spanCount="2"
+        tools:listitem="@layout/one_item_best_seller" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

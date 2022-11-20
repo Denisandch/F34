@@ -19,4 +19,5 @@
     <dimen name="cart_title_margin_top">50dp</dimen>
     <dimen name="subtotal_text_size">15sp</dimen>
     <dimen name="tool_bar_total_text_size">15sp</dimen>
+
 </resources>

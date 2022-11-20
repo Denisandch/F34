@@ -17,6 +17,7 @@ import com.example.domain.usecases.GetDetailInfo
 import com.example.domain.usecases.GetDevicesMainScreenUseCase
 import com.example.domain.usecases.GetSavedCartInfo
 import kotlinx.coroutines.launch
+import kotlin.math.log
 
 const val MAX_COUNT_OF_LOT_DEVICES_IN_CART = 9
 class ApplicationViewModel : ViewModel() {
@@ -47,7 +48,11 @@ class ApplicationViewModel : ViewModel() {
     val totalCountDevices: LiveData<Int> = _totalCountDevices
 
     private lateinit var mainScreenData: MainScreenData
+    private var filteredList = mutableListOf<BestSellerDevice>()
     private var dataIsDownloaded = false
+
+    private val _listOfBrands = MutableLiveData(emptySet<String>().toMutableSet())
+    val listOfBrands: LiveData<MutableSet<String>> = _listOfBrands
 
     fun addLotToCart(lot: Lot) {
         if(_cartInfo.value!!.basket.contains(lot)) {
@@ -101,6 +106,11 @@ class ApplicationViewModel : ViewModel() {
         _totalPrice.value = _cartInfo.value!!.total
         _bestSellerList.value = mainScreenData.bestSellerList
         _hotSalesList.value = mainScreenData.hotSellList
+
+        for(item in _bestSellerList.value!!) {
+            Log.i("","${item.title}")
+            _listOfBrands.value!!.add(item.title.substringBefore(" "))
+        }
     }
 
     fun downloadInitialData() {
@@ -125,7 +135,19 @@ class ApplicationViewModel : ViewModel() {
     }
 
     fun invertFavorite(device: BestSellerDevice) {
+        Log.i("", "НАХУЯ")
         val index =_bestSellerList.value!!.indexOf(device)
         _bestSellerList.value!![index].isFavorites = !_bestSellerList.value!![index].isFavorites
+    }
+
+    fun applyFilters(brand: String = "", lowPrice: Int = 0, highPrice: Int = 10000) {
+        for (device in mainScreenData.bestSellerList) {
+            if (device.title.contains(brand)
+                && device.discountPrice >= lowPrice
+                && device.discountPrice <= highPrice)
+                filteredList.add(device)
+        }
+        _bestSellerList.postValue(filteredList)
+        filteredList = mutableListOf()
     }
 }

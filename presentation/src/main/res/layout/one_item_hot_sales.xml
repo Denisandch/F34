@@ -24,7 +24,7 @@
             android:id="@+id/is_new_marker"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:background="@drawable/shape_oval"
+            android:background="@drawable/shape_oval_orange"
             android:visibility="invisible"
             tools:visibility="visible"
             app:layout_constraintStart_toStartOf="parent"

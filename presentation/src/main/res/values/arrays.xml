@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--hardcoded string array Sizes of screen (filters)-->
+    <string-array name="screen_sizes">
+        <item name="from_4.5">4.5 to 4.49 inches</item>
+        <item name="from_5">5 to 5.49 inches</item>
+        <item name="from_5.5">5.5 to 6 inches</item>
+        <item name="from_6">6 to 6.09 inches</item>
+        <item name="from_6.1">6.1 to 6.19 inches</item>
+    </string-array>
+
+    <!--hardcoded string array for MainScreen ActionBar-->
+    <string-array name="debug">
+        <item name="first">Zihuatanejo, Gro</item>
+        <item name="second">Moscow, Rus</item>
+    </string-array>
+
+    <string-array name="prices">
+        <item name="0">$0 - $1000</item>
+        <item name="1">$1000 - $2000</item>
+        <item name="2">$2000 - $3000</item>
+        <item name="3">$3000 - $4000</item>
+        <item name="4">$4000 - $5000</item>
+        <item name="5">$5000 - $6000</item>
+        <item name="6">$6000 - $7000</item>
+        <item name="7">$7000 - $8000</item>
+        <item name="8">$8000 - $9000</item>
+        <item name="9">$9000 - $10000</item>
+    </string-array>
+
+</resources>

@@ -19,34 +19,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-<!--    <ImageButton-->
-<!--        android:id="@+id/close_bottom_sheet"-->
-<!--        android:layout_width="37dp"-->
-<!--        android:layout_height="37dp"-->
-<!--        android:background="@drawable/shape_rounded_corners_button_dark"-->
-<!--        android:src="@drawable/button_cancel_svg"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-
-<!--    <TextView-->
-<!--        style="@style/BottomSheetTitles.F34.TextView"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginEnd="44dp"-->
-<!--        android:text="@string/bottom_sheet_title"-->
-<!--        app:layout_constraintBottom_toBottomOf="@+id/done_button"-->
-<!--        app:layout_constraintEnd_toStartOf="@id/done_button"-->
-<!--        app:layout_constraintTop_toTopOf="@id/done_button" />-->
-
-<!--    <Button-->
-<!--        android:id="@+id/done_button"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="37dp"-->
-<!--        android:background="@drawable/shape_rounded_corners_button_light"-->
-<!--        android:text="Done"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -65,9 +37,9 @@
             android:text="@string/filter_brand" />
 
         <Spinner
+            android:id="@+id/filter_brand"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:entries="@array/debug" />
+            android:layout_height="40dp" />
 
         <TextView
             style="@style/BottomSheetTitles.F34.TextView"
@@ -76,9 +48,10 @@
             android:text="@string/filter_price" />
 
         <Spinner
+            android:id="@+id/filter_price"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:entries="@array/debug" />
+            android:entries="@array/prices" />
 
         <TextView
             style="@style/BottomSheetTitles.F34.TextView"
@@ -87,9 +60,10 @@
             android:text="@string/filter_size" />
 
         <Spinner
+            android:id="@+id/filter_screen_size"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:entries="@array/debug" />
+            android:entries="@array/screen_sizes" />
 
 
     </LinearLayout>

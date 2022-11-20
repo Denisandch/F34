@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/back"
+    android:layout_width="70dp"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:id="@+id/category_background"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        app:cardCornerRadius="45dp"
+        android:background="@drawable/shape_oval_white">
+
+        <ImageView
+            android:id="@+id/category_image"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:src="@drawable/button_favorites_svg" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/text_type_of_device"
+        android:text="Phones"
+        android:textColor="@color/dark_blue"
+        android:fontFamily="@font/mark_pro_medium"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+</LinearLayout>

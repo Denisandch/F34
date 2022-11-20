@@ -23,7 +23,9 @@ class BestSellerAdapter(private val listener: BestSellerInterface) :
 
         fun init(device: BestSellerDevice) {
 
-            if (device.isFavorites) oneItemBestSellerBinding.isFavorite.toggle()
+            if (device.isFavorites != oneItemBestSellerBinding.isFavorite.isChecked) {
+                oneItemBestSellerBinding.isFavorite.toggle()
+            }
 
             oneItemBestSellerBinding.isFavorite.setOnClickListener {
                 listener.tapFavorites(device)

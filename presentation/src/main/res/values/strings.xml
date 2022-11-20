@@ -46,10 +46,4 @@
     <string name="add_to_cart">Add to cart</string>
 
 
-
-    <!--hardcoded string array for MainScreen ActionBar-->
-    <string-array name="debug">
-        <item name="first">Zihuatanejo, Gro</item>
-        <item name="second">Moscow, Rus</item>
-    </string-array>
 </resources>
