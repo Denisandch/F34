@@ -3,6 +3,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="temporary_empty_fragment">Temporary empty fragment</string>
     <string name="hello_splash">Ecommerce Concept</string>
+    <string name="currency">$</string>
 
     <!--menus-->
     <string name="filters">filters</string>

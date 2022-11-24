@@ -1,7 +1,6 @@
 package com.example.f34.presentation
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -57,7 +56,6 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                     .substringAfter("$")
                     .substringBefore(" ")
                     .toInt()
-            Log.i(" ", "$lowPrice")
 
             val highPrice =
                 bottomSheetBinding
@@ -66,18 +64,18 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                     .toString()
                     .substringAfterLast("$")
                     .toInt()
-            Log.i(" ", "$highPrice")
 
             viewmodel.applyFilters(
                 brand = brand,
                 lowPrice = lowPrice,
-                highPrice = highPrice)
+                highPrice = highPrice
+            )
 
             findNavController().popBackStack()
         }
     }
 
-    private fun initObserves(){
+    private fun initObserves() {
         viewmodel.listOfBrands.observe(viewLifecycleOwner) {
             adapter.addAll(it)
         }

@@ -1,6 +1,5 @@
 package com.example.f34.presentation
 
-import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -66,11 +65,13 @@ class MainScreenFragment : Fragment(), BestSellerInterface {
 
     private fun initTabItems() {
         for (i in 0 until fragmentMainScreenBinding.categoriesTabLayout.tabCount) {
-            val shape = LayoutInflater.from(requireContext()).inflate(R.layout.one_item_categories, null) as LinearLayout
+            val shape = LayoutInflater.from(requireContext())
+                .inflate(R.layout.one_item_categories, null) as LinearLayout
             val textView = shape.findViewById<TextView>(R.id.text_type_of_device)
             val imageView = shape.findViewById<ImageView>(R.id.category_image)
 
-            textView.text = fragmentMainScreenBinding.categoriesTabLayout.getTabAt(i)!!.text.toString()
+            textView.text =
+                fragmentMainScreenBinding.categoriesTabLayout.getTabAt(i)!!.text.toString()
             imageView.setImageResource(imageArray[i])
             fragmentMainScreenBinding.categoriesTabLayout.getTabAt(i)!!.customView = shape
         }
@@ -84,7 +85,8 @@ class MainScreenFragment : Fragment(), BestSellerInterface {
             true
         }
 
-        fragmentMainScreenBinding.categoriesTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
+        fragmentMainScreenBinding.categoriesTabLayout.addOnTabSelectedListener(object :
+            TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
                 highlightTab(tab.position)
             }
@@ -124,7 +126,8 @@ class MainScreenFragment : Fragment(), BestSellerInterface {
     }
 
     fun highlightTab(position: Int) {
-        val tabShape = fragmentMainScreenBinding.categoriesTabLayout.getTabAt(position)!!.customView as LinearLayout
+        val tabShape =
+            fragmentMainScreenBinding.categoriesTabLayout.getTabAt(position)!!.customView as LinearLayout
         val background: FrameLayout = tabShape.findViewById(R.id.category_background)
         val textView = tabShape.findViewById<TextView>(R.id.text_type_of_device)
 
@@ -133,7 +136,8 @@ class MainScreenFragment : Fragment(), BestSellerInterface {
     }
 
     fun fadeTab(position: Int) {
-        val tabShape = fragmentMainScreenBinding.categoriesTabLayout.getTabAt(position)!!.customView as LinearLayout
+        val tabShape =
+            fragmentMainScreenBinding.categoriesTabLayout.getTabAt(position)!!.customView as LinearLayout
         val background: FrameLayout = tabShape.findViewById(R.id.category_background)
         val textView = tabShape.findViewById<TextView>(R.id.text_type_of_device)
 

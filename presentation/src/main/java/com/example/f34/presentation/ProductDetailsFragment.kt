@@ -38,7 +38,8 @@ class ProductDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        fragmentProductDetailsBinding = FragmentProductDetailsBinding.inflate(inflater, container, false)
+        fragmentProductDetailsBinding =
+            FragmentProductDetailsBinding.inflate(inflater, container, false)
         return fragmentProductDetailsBinding.root
     }
 
@@ -55,18 +56,18 @@ class ProductDetailsFragment : Fragment() {
     }
 
     private fun initOnClickers() {
-        fragmentProductDetailsBinding.toolBar.cart.setOnClickListener{
+        fragmentProductDetailsBinding.toolBar.cart.setOnClickListener {
             val botNav = activity?.findViewById<BottomNavigationView>(R.id.bottom_nav)
-            findNavController().popBackStack(R.id.productDetailsFragment,true)
+            findNavController().popBackStack(R.id.productDetailsFragment, true)
             botNav?.selectedItemId = R.id.cart
         }
 
-        fragmentProductDetailsBinding.toolBar.exit.setOnClickListener{
+        fragmentProductDetailsBinding.toolBar.exit.setOnClickListener {
             findNavController().popBackStack()
         }
 
         fragmentProductDetailsBinding.addToCart.setOnClickListener {
-            try{
+            try {
                 val lot = Lot(
                     id = viewmodel.checkedDeviceInfo.value!!.id.toInt(),
                     images = viewmodel.checkedDeviceInfo.value!!.images[0],
@@ -76,7 +77,11 @@ class ProductDetailsFragment : Fragment() {
 
                 viewmodel.addLotToCart(lot)
             } catch (e: Exception) {
-                Toast.makeText(requireContext(), viewmodel.connectionResult.value, Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    viewmodel.connectionResult.value,
+                    Toast.LENGTH_SHORT
+                ).show()
 
             }
         }

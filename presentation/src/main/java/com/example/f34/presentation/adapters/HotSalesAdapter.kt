@@ -14,31 +14,34 @@ import com.example.f34.R
 import com.example.f34.databinding.OneItemHotSalesBinding
 
 
-class HotSalesAdapter: ListAdapter<HotSellDevice, HotSalesAdapter.HotSalesItemViewHolder>(
+class HotSalesAdapter : ListAdapter<HotSellDevice, HotSalesAdapter.HotSalesItemViewHolder>(
     DiffCallback
 ) {
 
-    class HotSalesItemViewHolder(view: View): RecyclerView.ViewHolder(view) {
+    class HotSalesItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         private val oneItemHotSalesBinding = OneItemHotSalesBinding.bind(view)
 
         fun init(device: HotSellDevice) {
-            if(device.isNew) oneItemHotSalesBinding.isNewMarker.visibility = View.VISIBLE
-            oneItemHotSalesBinding.hotSaleImage.load(device.picture.toUri().buildUpon().build()){
+            if (device.isNew) oneItemHotSalesBinding.isNewMarker.visibility = View.VISIBLE
+            oneItemHotSalesBinding.hotSaleImage.load(device.picture.toUri().buildUpon().build()) {
                 placeholder(R.drawable.loading_animation)
             }
             oneItemHotSalesBinding.hotSaleTitle.text = device.title
             oneItemHotSalesBinding.hotSaleDescription.text = device.subtitle
 
             itemView.setOnClickListener {
-                itemView.findNavController().navigate(R.id.action_explorer_to_productDetailsFragment)
+                itemView.findNavController()
+                    .navigate(R.id.action_explorer_to_productDetailsFragment)
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HotSalesItemViewHolder {
-        return HotSalesItemViewHolder(LayoutInflater.from(parent.context)
-            .inflate(R.layout.one_item_hot_sales,parent,false))
+        return HotSalesItemViewHolder(
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.one_item_hot_sales, parent, false)
+        )
     }
 
     override fun onBindViewHolder(holder: HotSalesItemViewHolder, position: Int) {
@@ -46,7 +49,7 @@ class HotSalesAdapter: ListAdapter<HotSellDevice, HotSalesAdapter.HotSalesItemVi
         holder.init(device)
     }
 
-    object DiffCallback: DiffUtil.ItemCallback<HotSellDevice>() {
+    object DiffCallback : DiffUtil.ItemCallback<HotSellDevice>() {
 
         override fun areItemsTheSame(oldItem: HotSellDevice, newItem: HotSellDevice): Boolean {
             return oldItem.title == newItem.title

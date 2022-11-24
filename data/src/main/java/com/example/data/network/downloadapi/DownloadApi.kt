@@ -5,7 +5,7 @@ import com.example.data.network.model.cart.CartInfoJsonAnswer
 import com.example.data.network.model.mainscreen.MainScreenJsonAnswer
 import com.example.data.network.model.productdetails.InfoAboutCheckedDeviceJsonAnswer
 
-class DownloadApi: DeviceNetworkDownload {
+class DownloadApi : DeviceNetworkDownload {
     override suspend fun downloadMainScreen(typeOfDevices: String): MainScreenJsonAnswer {
         return RetrofitInstance.retrofitService.getDevicesFromMainScreen(typeOfDevices)
     }

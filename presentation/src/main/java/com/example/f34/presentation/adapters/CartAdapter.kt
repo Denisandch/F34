@@ -13,28 +13,28 @@ import com.example.domain.model.cart.Lot
 import com.example.f34.R
 import com.example.f34.databinding.OneItemCartBinding
 
-class CartAdapter(val listener: CartInterface): ListAdapter<Lot, CartAdapter.CartItemViewHolder>(
+class CartAdapter(val listener: CartInterface) : ListAdapter<Lot, CartAdapter.CartItemViewHolder>(
     DiffCallback
 ) {
 
-    inner class CartItemViewHolder(view: View): RecyclerView.ViewHolder(view) {
+    inner class CartItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         private val oneItemCartBinding = OneItemCartBinding.bind(view)
 
         fun init(lot: Lot) {
             oneItemCartBinding.apply {
-                cartImage.load(lot.images.toUri().buildUpon().build()){
+                cartImage.load(lot.images.toUri().buildUpon().build()) {
                     placeholder(R.drawable.loading_animation)
                 }
                 cartTitle.text = lot.title
                 cartPrice.text = ("$${lot.totalPrice}")
                 cartItemCounter.text = lot.count.toString()
 
-                cartCountPlus.setOnClickListener{
+                cartCountPlus.setOnClickListener {
                     listener.upCount(lot)
                 }
 
-                cartCountMinus.setOnClickListener{
+                cartCountMinus.setOnClickListener {
                     listener.downCount(lot)
                 }
 
@@ -46,8 +46,10 @@ class CartAdapter(val listener: CartInterface): ListAdapter<Lot, CartAdapter.Car
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartItemViewHolder {
-        return CartItemViewHolder(LayoutInflater.from(parent.context)
-            .inflate(R.layout.one_item_cart,parent,false))
+        return CartItemViewHolder(
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.one_item_cart, parent, false)
+        )
     }
 
     override fun onBindViewHolder(holder: CartItemViewHolder, position: Int) {
@@ -56,7 +58,7 @@ class CartAdapter(val listener: CartInterface): ListAdapter<Lot, CartAdapter.Car
         holder.init(item)
     }
 
-    object DiffCallback: DiffUtil.ItemCallback<Lot>() {
+    object DiffCallback : DiffUtil.ItemCallback<Lot>() {
 
         override fun areItemsTheSame(oldItem: Lot, newItem: Lot): Boolean {
             return oldItem.id == newItem.id

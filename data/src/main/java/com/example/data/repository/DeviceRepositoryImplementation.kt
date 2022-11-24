@@ -12,7 +12,8 @@ import com.example.domain.model.mainscreen.MainScreenData
 import com.example.domain.model.productdatails.CheckedDeviceInfo
 import com.example.domain.repository.DeviceRepositoryInterface
 
-class DeviceRepositoryImplementation(private val deviceNetworkDownload: DeviceNetworkDownload): DeviceRepositoryInterface {
+class DeviceRepositoryImplementation(private val deviceNetworkDownload: DeviceNetworkDownload) :
+    DeviceRepositoryInterface {
 
     override suspend fun getDevices(typeOfDevices: String): MainScreenData {
         val temporary = deviceNetworkDownload.downloadMainScreen(typeOfDevices)
@@ -32,12 +33,12 @@ class DeviceRepositoryImplementation(private val deviceNetworkDownload: DeviceNe
         return mapJsonToInfoCheckedDevice(temporary)
     }
 
-    private fun mapJsonToDataMainScreen(temporary: MainScreenJsonAnswer): MainScreenData{
+    private fun mapJsonToDataMainScreen(temporary: MainScreenJsonAnswer): MainScreenData {
 
         val newHot = mutableListOf<HotSellDevice>()
         val newBest = mutableListOf<BestSellerDevice>()
 
-        for(item in temporary.hotSellList) {
+        for (item in temporary.hotSellList) {
             newHot.add(
                 HotSellDevice(
                     item.id,
@@ -49,7 +50,7 @@ class DeviceRepositoryImplementation(private val deviceNetworkDownload: DeviceNe
                 )
             )
         }
-        for(item in temporary.bestSellerList) {
+        for (item in temporary.bestSellerList) {
             newBest.add(
                 BestSellerDevice(
                     item.id,
@@ -63,6 +64,7 @@ class DeviceRepositoryImplementation(private val deviceNetworkDownload: DeviceNe
         }
         return MainScreenData(newHot, newBest)
     }
+
     private fun mapJsonToInfoCart(temporary: CartInfoJsonAnswer): CartInfo {
         val newBasket = mutableListOf<Lot>()
 
@@ -84,6 +86,7 @@ class DeviceRepositoryImplementation(private val deviceNetworkDownload: DeviceNe
             total = temporary.total
         )
     }
+
     private fun mapJsonToInfoCheckedDevice(temporary: InfoAboutCheckedDeviceJsonAnswer): CheckedDeviceInfo {
         val newInfo = CheckedDeviceInfo(
             cpu = temporary.cpu,

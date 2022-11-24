@@ -11,10 +11,10 @@ import com.example.f34.R
 import com.example.f34.databinding.OneItemColorBinding
 
 
-class ColorAdapter: RecyclerView.Adapter<ColorAdapter.ColorItemViewHolder>() {
+class ColorAdapter : RecyclerView.Adapter<ColorAdapter.ColorItemViewHolder>() {
     private var listOfColor = emptyList<String>()
 
-    class ColorItemViewHolder(view: View): RecyclerView.ViewHolder(view) {
+    class ColorItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val oneColorBinding = OneItemColorBinding.bind(view)
 
         fun bind(item: String) {
@@ -28,7 +28,7 @@ class ColorAdapter: RecyclerView.Adapter<ColorAdapter.ColorItemViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ColorItemViewHolder {
         val view = LayoutInflater
             .from(parent.context)
-            .inflate(R.layout.one_item_color,parent,false)
+            .inflate(R.layout.one_item_color, parent, false)
         return ColorItemViewHolder(view)
     }
 
