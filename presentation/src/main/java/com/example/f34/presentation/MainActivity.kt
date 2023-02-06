@@ -13,7 +13,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
 
-    private val viewmodel by viewModel<ApplicationViewModel>()
+    private val viewModel by viewModel<ApplicationViewModel>()
 
     private lateinit var navController: NavController
     private lateinit var activityMainBinding: ActivityMainBinding
@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initObserves() {
-        viewmodel.totalCountDevices.observe(this) {
+        viewModel.totalCountDevices.observe(this) {
             if (it == 0) activityMainBinding.bottomNav.removeBadge(R.id.cart)
             else activityMainBinding.bottomNav.getOrCreateBadge(R.id.cart).number = it
         }

@@ -39,7 +39,7 @@ class MainScreenFragment : Fragment(), BestSellerInterface {
     private val adapterBest = BestSellerAdapter(this)
     private val adapterHot = HotSalesAdapter()
 
-    private val viewmodel by viewModel<ApplicationViewModel>()
+    private val viewModel by viewModel<ApplicationViewModel>()
     private lateinit var fragmentMainScreenBinding: FragmentMainScreenBinding
 
     override fun onCreateView(
@@ -60,7 +60,7 @@ class MainScreenFragment : Fragment(), BestSellerInterface {
         initTabItems()
         initObserves()
 
-        viewmodel.downloadInitialData()
+        viewModel.downloadInitialData()
     }
 
     private fun initTabItems() {
@@ -104,28 +104,28 @@ class MainScreenFragment : Fragment(), BestSellerInterface {
     }
 
     private fun initObserves() {
-        viewmodel.hotSalesList.observe(viewLifecycleOwner) {
+        viewModel.hotSalesList.observe(viewLifecycleOwner) {
             adapterHot.submitList(it)
         }
-        viewmodel.bestSellerList.observe(viewLifecycleOwner) {
+        viewModel.bestSellerList.observe(viewLifecycleOwner) {
             adapterBest.submitList(it)
         }
 
-        viewmodel.connectionResult.observe(viewLifecycleOwner) {
-            if (it != Constans.SUCCESS) {
-                Toast.makeText(requireContext(), Constans.ERROR, Toast.LENGTH_SHORT).show()
+        viewModel.connectionResult.observe(viewLifecycleOwner) {
+            if (it != Constant.SUCCESS) {
+                Toast.makeText(requireContext(), Constant.ERROR, Toast.LENGTH_SHORT).show()
                 Handler(Looper.getMainLooper()).postDelayed({
-                    viewmodel.downloadInitialData()
+                    viewModel.downloadInitialData()
                 }, 2000)
             }
         }
     }
 
     override fun tapFavorites(device: BestSellerDevice) {
-        viewmodel.invertFavorite(device)
+        viewModel.invertFavorite(device)
     }
 
-    fun highlightTab(position: Int) {
+    private fun highlightTab(position: Int) {
         val tabShape =
             fragmentMainScreenBinding.categoriesTabLayout.getTabAt(position)!!.customView as LinearLayout
         val background: FrameLayout = tabShape.findViewById(R.id.category_background)
@@ -135,7 +135,7 @@ class MainScreenFragment : Fragment(), BestSellerInterface {
         background.setBackgroundResource(R.drawable.shape_oval_orange)
     }
 
-    fun fadeTab(position: Int) {
+    private fun fadeTab(position: Int) {
         val tabShape =
             fragmentMainScreenBinding.categoriesTabLayout.getTabAt(position)!!.customView as LinearLayout
         val background: FrameLayout = tabShape.findViewById(R.id.category_background)

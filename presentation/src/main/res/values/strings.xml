@@ -46,17 +46,17 @@
     <string name="cart_count_delivery">50$</string>
     <string name="cart_add_address">Add address</string>
     <string name="checkout_button">Checkout</string>
+    <string name="cart_currency">%1$s us</string>
 
     <!--    ProductDetailFragment-->
     <string name="product_detail_title">Product Details</string>
-    <string name="add_to_cart">Add to cart</string>
+    <string name="add_to_cart">Add to cart %1$s</string>
     <string name="tabShop">Shop</string>
     <string name="tabDetails">Details</string>
     <string name="tabFeatures">Features</string>
     <string name="select_details">Select color and capacity</string>
 
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 

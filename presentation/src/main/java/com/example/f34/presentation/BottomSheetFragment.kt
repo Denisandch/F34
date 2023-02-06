@@ -14,7 +14,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class BottomSheetFragment : BottomSheetDialogFragment() {
 
     private lateinit var bottomSheetBinding: FragmentBottomSheetBinding
-    private val viewmodel by viewModel<ApplicationViewModel>()
+    private val viewModel by viewModel<ApplicationViewModel>()
     private lateinit var adapter: ArrayAdapter<String>
 
     override fun onCreateView(
@@ -65,7 +65,7 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                     .substringAfterLast("$")
                     .toInt()
 
-            viewmodel.applyFilters(
+            viewModel.applyFilters(
                 brand = brand,
                 lowPrice = lowPrice,
                 highPrice = highPrice
@@ -76,7 +76,7 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
     }
 
     private fun initObserves() {
-        viewmodel.listOfBrands.observe(viewLifecycleOwner) {
+        viewModel.listOfBrands.observe(viewLifecycleOwner) {
             adapter.addAll(it)
         }
     }

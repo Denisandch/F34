@@ -23,7 +23,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlin.math.abs
 
-
 class ProductDetailsFragment : Fragment() {
 
     private val colorAdapter = ColorAdapter()
@@ -31,7 +30,7 @@ class ProductDetailsFragment : Fragment() {
     private val pagerAdapter = ViewPagerImageAdapter()
 
     private lateinit var fragmentProductDetailsBinding: FragmentProductDetailsBinding
-    private val viewmodel by viewModel<ApplicationViewModel>()
+    private val viewModel by viewModel<ApplicationViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,6 +54,11 @@ class ProductDetailsFragment : Fragment() {
         initObserves()
     }
 
+    override fun onStart() {
+        super.onStart()
+        viewModel.downloadInfoCheckedDevice()
+    }
+
     private fun initOnClickers() {
         fragmentProductDetailsBinding.toolBar.cart.setOnClickListener {
             val botNav = activity?.findViewById<BottomNavigationView>(R.id.bottom_nav)
@@ -69,17 +73,16 @@ class ProductDetailsFragment : Fragment() {
         fragmentProductDetailsBinding.addToCart.setOnClickListener {
             try {
                 val lot = Lot(
-                    id = viewmodel.checkedDeviceInfo.value!!.id.toInt(),
-                    images = viewmodel.checkedDeviceInfo.value!!.images[0],
-                    price = viewmodel.checkedDeviceInfo.value!!.price,
-                    title = viewmodel.checkedDeviceInfo.value!!.title
+                    id = viewModel.checkedDeviceInfo.value!!.id.toInt(),
+                    images = viewModel.checkedDeviceInfo.value!!.images[0],
+                    price = viewModel.checkedDeviceInfo.value!!.price,
+                    title = viewModel.checkedDeviceInfo.value!!.title
                 )
-
-                viewmodel.addLotToCart(lot)
+                viewModel.addLotToCart(lot)
             } catch (e: Exception) {
                 Toast.makeText(
                     requireContext(),
-                    viewmodel.connectionResult.value,
+                    viewModel.connectionResult.value,
                     Toast.LENGTH_SHORT
                 ).show()
 
@@ -88,7 +91,7 @@ class ProductDetailsFragment : Fragment() {
     }
 
     private fun initObserves() {
-        viewmodel.checkedDeviceInfo.observe(viewLifecycleOwner) { details ->
+        viewModel.checkedDeviceInfo.observe(viewLifecycleOwner) { details ->
             fragmentProductDetailsBinding.apply {
                 detailsTitle.text = details.title
                 if (details.isFavorites != detailsIsFavorite.isChecked) {
@@ -101,18 +104,17 @@ class ProductDetailsFragment : Fragment() {
                 romDescription.text = details.maxSdCapacity
                 colorAdapter.setList(details.colors)
                 romAdapter.setList(details.romCapacity)
-                addToCart.text = "Add to cart \$${details.price}"
-
+                addToCart.text = getString(R.string.add_to_cart, "\$${details.price}")
                 pagerAdapter.setList(details.images)
             }
         }
 
 
-        viewmodel.connectionResult.observe(viewLifecycleOwner) {
-            if (it != Constans.SUCCESS) {
-                Toast.makeText(requireContext(), Constans.ERROR, Toast.LENGTH_SHORT).show()
+        viewModel.connectionResult.observe(viewLifecycleOwner) {
+            if (it != Constant.SUCCESS) {
+                Toast.makeText(requireContext(), Constant.ERROR, Toast.LENGTH_SHORT).show()
                 Handler(Looper.getMainLooper()).postDelayed({
-                    viewmodel.downloadInfoCheckedDevice()
+                    viewModel.downloadInfoCheckedDevice()
                 }, 2000)
             }
         }
@@ -137,11 +139,6 @@ class ProductDetailsFragment : Fragment() {
             detailsImages.setPageTransformer(transformer)
 
         }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        viewmodel.downloadInfoCheckedDevice()
     }
 
 }

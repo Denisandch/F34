@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.domain.model.cart.Lot
+import com.example.f34.R
 import com.example.f34.presentation.adapters.CartAdapter
 import com.example.f34.presentation.adapters.CartInterface
 import com.example.f34.databinding.FragmentMyCartBinding
@@ -18,8 +19,9 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class MyCartFragment : Fragment(), CartInterface {
 
     private val adapterCart = CartAdapter(this)
-    private val viewmodel by viewModel<ApplicationViewModel>()
+    private val viewModel by viewModel<ApplicationViewModel>()
     private lateinit var fragmentMyCartBinding: FragmentMyCartBinding
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,30 +50,30 @@ class MyCartFragment : Fragment(), CartInterface {
     }
 
     private fun initObserves() {
-        viewmodel.cartInfo.observe(viewLifecycleOwner) {
+        viewModel.cartInfo.observe(viewLifecycleOwner) {
             adapterCart.submitList(it.basket)
             adapterCart.notifyDataSetChanged()
         }
 
-        viewmodel.cartInfo.observe(viewLifecycleOwner) {
+        viewModel.cartInfo.observe(viewLifecycleOwner) {
             fragmentMyCartBinding.cartDeliveryCost.text = it.deliveryString
         }
 
-        viewmodel.totalPrice.observe(viewLifecycleOwner) {
-            fragmentMyCartBinding.cartSummaryCost.text = "\$${it} us"
+        viewModel.totalPrice.observe(viewLifecycleOwner) {
+            fragmentMyCartBinding.cartSummaryCost.text = getString(R.string.cart_currency, "\$${it}")
         }
     }
 
     override fun upCount(lot: Lot) {
-        viewmodel.upCountOfLot(lot)
+        viewModel.upCountOfLot(lot)
     }
 
     override fun downCount(lot: Lot) {
-        viewmodel.downCountOfLot(lot)
+        viewModel.downCountOfLot(lot)
     }
 
     override fun deleteFromCart(lot: Lot) {
-        viewmodel.deleteLotFromCart(lot)
+        viewModel.deleteLotFromCart(lot)
     }
 
 }

@@ -13,7 +13,7 @@ import com.example.domain.model.productdatails.CheckedDeviceInfo
 import com.example.domain.usecases.GetDetailInfo
 import com.example.domain.usecases.GetDevicesMainScreenUseCase
 import com.example.domain.usecases.GetSavedCartInfo
-import com.example.f34.presentation.Constans
+import com.example.f34.presentation.Constant
 import kotlinx.coroutines.launch
 
 class ApplicationViewModel(
@@ -65,7 +65,7 @@ class ApplicationViewModel(
 
     fun upCountOfLot(lot: Lot) {
         val index = _cartInfo.value!!.basket.indexOf(lot)
-        if (_cartInfo.value!!.basket[index].count == Constans.MAX_COUNT_OF_LOT_DEVICES_IN_CART) return
+        if (_cartInfo.value!!.basket[index].count == Constant.MAX_COUNT_OF_LOT_DEVICES_IN_CART) return
 
         _totalCountDevices.value = _totalCountDevices.value?.plus(1)
         _cartInfo.value!!.basket[index].count++
@@ -122,11 +122,11 @@ class ApplicationViewModel(
                         getSavedCartInfo.getCartInfo("53539a72-3c5f-4f30-bbb1-6ca10d42c149")
 
                     initialProperties()
-                    _connectionResult.value = Constans.SUCCESS
+                    _connectionResult.value = Constant.SUCCESS
                     mainDataIsDownloaded = true
 
                 } catch (e: Exception) {
-                    _connectionResult.value = Constans.ERROR
+                    _connectionResult.value = Constant.ERROR
                 }
             }
         }
@@ -137,10 +137,10 @@ class ApplicationViewModel(
             viewModelScope.launch {
                 try {
                     _checkedDeviceInfo.value = getCheckedDeviceInfo.getDetailInfo(checkedDevice)
-                    _connectionResult.value = Constans.SUCCESS
+                    _connectionResult.value = Constant.SUCCESS
                     detailsDataIsDownloaded = true
                 } catch (e: Exception) {
-                    _connectionResult.value = Constans.ERROR
+                    _connectionResult.value = Constant.ERROR
                 }
             }
         }
